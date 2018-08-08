@@ -1,17 +1,16 @@
 {
-  "name": "clerk",
+  "name": "yahiarefaiea-official-website-beta",
   "version": "1.0.0",
-  "description": "A platform that helps find the right fit for a company",
+  "description": "I’m a 21 years old handsome guy who grows up in a small town in Syria.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuotron/clerk.git"
+    "url": "git+https://YahiaRefaiea@bitbucket.org/YahiaRefaiea/yahiarefaiea-official-website-beta.git"
   },
-  "author": "Yahia Refaiea <hello@yahiarefaiea.com>",
-  "url": "http://clerk.technology/",
-  "bugs": {
-    "url": "https://github.com/nuotron/clerk/issues"
+  "author": {
+    "name": "Yahia Refaiea",
+    "email": "hello@yahiarefaiea.com"
   },
-  "homepage": "https://github.com/nuotron/clerk#readme",
+  "url": "http://beta.yahiarefaiea.com/",
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
