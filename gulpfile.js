@@ -32,10 +32,11 @@ var gulp = require('gulp'),
       ' *  <%= pkg.name %> <%= pkg.version %>\n'+
       ' *  <%= pkg.description %>\n'+
       ' *  <%= pkg.url %>\n'+
+      ' *  <%= pkg.author.email %>\n'+
       ' *  \n'+
       ' *  Last update on: <%= new Date().getUTCFullYear() %>/'+
       '<%= new Date().getUTCMonth()+1 %>/<%= new Date().getUTCDate() %>\n'+
-      ' *  ©<%= new Date().getFullYear() %> Clerk. all rights reserved.\n'+
+      ' *  ©<%= new Date().getFullYear() %> <%= pkg.author.name %>. all rights reserved.\n'+
       ' */\n\n';
 
 
@@ -57,10 +58,7 @@ gulp.task('pug', function() {
     .pipe(pug({
       pretty: true,
       data: {
-        root: JSON.parse(fs.readFileSync(root+'/data/root.json')),
-        menu: JSON.parse(fs.readFileSync(root+'/data/menu.json')),
-        headlines: JSON.parse(fs.readFileSync(root+'/data/headlines.json')),
-        auth: JSON.parse(fs.readFileSync(root+'/data/auth.json'))
+        root: JSON.parse(fs.readFileSync(root+'/data/root.json'))
       }
      }))
     .pipe(gulp.dest(dest));
@@ -83,23 +81,9 @@ gulp.task('mails', function() {
 var babelSrc = [
   root+'/babel/lib/jquery-2.2.4.js',
   root+'/babel/lib/jpreloader.js',
-  root+'/babel/lib/tippy.all.min.js',
-  root+'/babel/mock.js',
-  root+'/babel/molecules/input.js',
-  root+'/babel/molecules/range.js',
-  root+'/babel/molecules/spans.js',
   root+'/babel/molecules/clerk.js',
-  root+'/babel/molecules/burger.js',
-  root+'/babel/molecules/pops.js',
-  root+'/babel/molecules/tippy.js',
   root+'/babel/organisms/request.js',
   root+'/babel/organisms/router.js',
-  root+'/babel/organisms/routes/unauthorized.js',
-  root+'/babel/organisms/routes/applicant.js',
-  root+'/babel/organisms/routes/company.js',
-  root+'/babel/organisms/inject.js',
-  root+'/babel/organisms/prepare.js',
-  root+'/babel/templates/auth.js',
   root+'/babel/molecules/loader.js'
 ];
 gulp.task('babel', function() {
