@@ -19,7 +19,7 @@ var gulp = require('gulp'),
     root = 'application',
     dest = 'release',
     assets = 'includes',
-    file = 'clerk',
+    file = 'yahiarefaiea',
     min = 'lite',
     mails = 'mails',
     css = 'stylesheets',
@@ -81,7 +81,7 @@ gulp.task('mails', function() {
 var babelSrc = [
   root+'/babel/lib/jquery-2.2.4.js',
   root+'/babel/lib/jpreloader.js',
-  root+'/babel/molecules/clerk.js',
+  root+'/babel/molecules/yahiarefaiea.js',
   root+'/babel/organisms/request.js',
   root+'/babel/organisms/router.js',
   root+'/babel/molecules/loader.js'
