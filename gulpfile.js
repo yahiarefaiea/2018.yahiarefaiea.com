@@ -120,7 +120,7 @@ gulp.task('htaccess', function() {
 
 //  WATCH
 gulp.task('watch', function() {
-  gulp.watch([root+'/pug/**/*', root+'/data/**/*'], ['pug', 'mails', browserSync.reload]);
+  gulp.watch(root+'/pug/**/*', ['pug', 'mails', browserSync.reload]);
   gulp.watch(root+'/babel/**/*', ['babel', browserSync.reload]);
   gulp.watch(root+'/stylus/**/*', ['stylus', browserSync.reload]);
   gulp.watch(root+'/img/**/*', ['img', browserSync.reload]);
