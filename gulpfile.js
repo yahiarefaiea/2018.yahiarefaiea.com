@@ -30,6 +30,7 @@ var gulp = require('gulp'),
     comment =
       '/*\n'+
       ' *  <%= pkg.name %> <%= pkg.version %>\n'+
+      ' *  \n'+
       ' *  <%= pkg.description %>\n'+
       ' *  <%= pkg.url %>\n'+
       ' *  <%= pkg.author.email %>\n'+
