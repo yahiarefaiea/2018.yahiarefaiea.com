@@ -57,10 +57,7 @@ gulp.task('browserSync', function() {
 gulp.task('pug', function() {
   return gulp.src(root+'/pug/public/*.pug')
     .pipe(pug({
-      pretty: true,
-      data: {
-        root: JSON.parse(fs.readFileSync(root+'/data/root.json'))
-      }
+      pretty: true
      }))
     .pipe(gulp.dest(dest));
 });
@@ -69,10 +66,7 @@ gulp.task('pug', function() {
 gulp.task('mails', function() {
   return gulp.src(root+'/pug/mails/*.pug')
     .pipe(pug({
-      pretty: true,
-      data: {
-        root: JSON.parse(fs.readFileSync(root+'/data/root.json'))
-      }
+      pretty: true
      }))
     .pipe(gulp.dest(dest+'/'+mails));
 });
