@@ -79,12 +79,6 @@ gulp.task('mails', function() {
 
 //  BABEL
 var babelSrc = [
-  root+'/babel/lib/jquery-2.2.4.js',
-  root+'/babel/lib/jpreloader.js',
-  root+'/babel/molecules/yahiarefaiea.js',
-  root+'/babel/organisms/request.js',
-  root+'/babel/organisms/router.js',
-  root+'/babel/molecules/loader.js'
 ];
 gulp.task('babel', function() {
   return gulp.src(babelSrc)
