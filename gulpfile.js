@@ -73,8 +73,7 @@ gulp.task('mails', function() {
 
 
 //  BABEL
-var babelSrc = [
-];
+var babelSrc = require('./babelSrc.json');
 gulp.task('babel', function() {
   return gulp.src(babelSrc)
     .pipe(babel())
