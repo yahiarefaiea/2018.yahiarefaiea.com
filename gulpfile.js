@@ -111,17 +111,17 @@ gulp.task('img', function() {
 });
 
 
-//  HTACCESS
-gulp.task('htaccess', function() {
-  return gulp.src('.htaccess')
-    .pipe(gulp.dest(dest));
-});
-
-
 //  PHP
 gulp.task('php', function() {
   return gulp.src(root+'/php/**/*')
     .pipe(gulp.dest(dest+'/'+assets+'/'+php));
+});
+
+
+//  HTACCESS
+gulp.task('htaccess', function() {
+  return gulp.src('.htaccess')
+    .pipe(gulp.dest(dest));
 });
 
 
