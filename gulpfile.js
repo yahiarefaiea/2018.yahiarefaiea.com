@@ -25,6 +25,7 @@ var gulp = require('gulp'),
     css = 'stylesheets',
     js = 'javascripts',
     img = 'images',
+    php = 'php',
 
     //  BANNER COMMENT
     comment =
@@ -117,22 +118,30 @@ gulp.task('htaccess', function() {
 });
 
 
+//  PHP
+gulp.task('php', function() {
+  return gulp.src(root+'/php/**/*')
+    .pipe(gulp.dest(dest+'/'+assets+'/'+php));
+});
+
+
 //  WATCH
 gulp.task('watch', function() {
   gulp.watch(root+'/pug/**/*', ['pug', 'mails', browserSync.reload]);
   gulp.watch(root+'/babel/**/*', ['babel', browserSync.reload]);
   gulp.watch(root+'/stylus/**/*', ['stylus', browserSync.reload]);
   gulp.watch(root+'/img/**/*', ['img', browserSync.reload]);
+  gulp.watch(root+'/php/**/*', ['php', browserSync.reload]);
 });
 
 
 //  DEFAULT
 gulp.task('default', function() {
-  runSequence(['del', 'pug', 'mails', 'babel', 'stylus', 'img', 'browserSync', 'watch']);
+  runSequence(['del', 'pug', 'mails', 'babel', 'stylus', 'img', 'php', 'browserSync', 'watch']);
 });
 
 
 //  RELEASE
 gulp.task('release', function() {
-  runSequence(['del', 'pug', 'mails', 'babel', 'stylus', 'img', 'htaccess']);
+  runSequence(['del', 'pug', 'mails', 'babel', 'stylus', 'img', 'php', 'htaccess']);
 });
