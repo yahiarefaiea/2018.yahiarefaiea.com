@@ -64,7 +64,7 @@ gulp.task('pug', function() {
 
 
 //  BABEL
-var babelSrc = require(root+'/babel/babelSrc.json');
+var babelSrc = require('./'+root+'/babel/babelSrc.json');
 gulp.task('babel', function() {
   return gulp.src(babelSrc)
     .pipe(babel())
