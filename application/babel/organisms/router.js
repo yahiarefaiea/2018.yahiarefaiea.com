@@ -33,12 +33,14 @@ var Router = {
 	},
 
 	//	SHIFT
-	shift: function(push, pull) {
+	shift: function(push, pull, callback) {
 		Identity.wait()
 
 		setTimeout(function() {
 			Identity.stop(function() {
 				Router.updateWrapper(push, pull)
+
+				if(typeof callback === 'function' && callback) callback()
 			})
 		}, 200)
 	},
@@ -76,9 +78,9 @@ var Router = {
 	listen: function() {
 		$('.wrapper').on('click', '.router', function(e) {
 			if($(this).hasClass('shift'))
-				Router.shift($(this).attr('data-push'), $(this).attr('data-pull'))
+				Router.shift($(this).attr('data-push'), $(this).attr('data-pull'), $(this).attr('data-callback'))
 			else
-				Router.route($(this).attr('href'))
+				Router.route($(this).attr('href'), $(this).attr('data-callback'))
 
 			e.preventDefault()
 		})
