@@ -78,9 +78,10 @@ var Router = {
 	listen: function() {
 		$('.wrapper').on('click', '.router', function(e) {
 			if($(this).hasClass('shift'))
-				Router.shift($(this).attr('data-push'), $(this).attr('data-pull'), $(this).attr('data-callback'))
+				Router.shift($(this).attr('data-push'), $(this).attr('data-pull'),
+					window[$(this).attr('data-callback')])
 			else
-				Router.route($(this).attr('href'), $(this).attr('data-callback'))
+				Router.route($(this).attr('href'), window[$(this).attr('data-callback')])
 
 			e.preventDefault()
 		})
