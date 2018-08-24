@@ -12,7 +12,7 @@ Router.routes = function(callback) {
     Router.push('secret')
   }
 
-  //  BUCKET HOME
+  //  BUCKET
   else if(location[0] == 'bucket' && location[1] === undefined) {
     Router.push('bucket')
   }
