@@ -32,19 +32,6 @@ var Router = {
 		}, 200)
 	},
 
-	//	SHIFT
-	shift: function(push, pull, callback) {
-		Identity.wait()
-
-		setTimeout(function() {
-			Identity.stop(function() {
-				Router.updateWrapper(push, pull)
-
-				if(typeof callback === 'function' && callback) callback()
-			})
-		}, 200)
-	},
-
 	//	UPDATE WRAPPER
 	updateWrapper: function(push, pull) {
 		if(push) Router.push(push)
@@ -77,12 +64,7 @@ var Router = {
 	//	LISTEN
 	listen: function() {
 		$('.wrapper').on('click', '.router', function(e) {
-			if($(this).hasClass('shift'))
-				Router.shift($(this).attr('data-push'), $(this).attr('data-pull'),
-					window[$(this).attr('data-callback')])
-			else
-				Router.route($(this).attr('href'), window[$(this).attr('data-callback')])
-
+			Router.route($(this).attr('href'), window[$(this).attr('data-callback')])
 			e.preventDefault()
 		})
 	}
