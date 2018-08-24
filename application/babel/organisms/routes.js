@@ -12,18 +12,14 @@ Router.routes = function(callback) {
     Router.push('secret')
   }
 
-  //  BUCKET
-  else if(location[0] == 'bucket') {
+  //  BUCKET HOME
+  else if(location[0] == 'bucket' && location[1] === undefined) {
+    Router.push('bucket')
+  }
 
-    //  BUCKET HOME
-    if(location[1] === undefined) {
-      Router.push('bucket')
-    }
-
-    //  BUCKET ALL
-    else if(location[1] == 'all' && location[2] === undefined) {
-      Router.push('bucketAll')
-    }
+  //  BUCKET ALL
+  else if(location[0] == 'bucket' && location[1] == 'all' && location[2] === undefined) {
+    Router.push('bucketAll')
   }
 
   //  NOT FOUND
