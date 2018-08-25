@@ -1,0 +1,33 @@
+*, *:before, *:after
+  box-sizing: border-box
+
+html, body
+  width: 100%
+  height: 100%
+
+body
+  position: relative
+  direction: dir
+  text-align: align
+  font-family: family-body
+  font-size: font-default
+  font-weight: weight-regular
+  line-height: baseline
+  background-color: background
+  color: grey-high
+  -webkit-font-smoothing: antialiased
+
+img
+  user-select: none
+
+::selection
+  background: selection-bg
+  color: selection-color
+::-moz-selection
+  background: selection-bg
+  color: selection-color
+
+.wrapper
+  position: relative
+  overflow: hidden
+  height: 100%
