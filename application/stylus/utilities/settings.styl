@@ -1,0 +1,54 @@
+baseline= 28px
+translate= baseline/2
+
+//  RESPONSIVE
+alpha= 320px
+beta= 500px
+gamma= 600px
+delta= 992px
+
+//  COLORS
+green= #419d78
+yellow= #e0a458
+red= #d9594c
+blue= #53a2be
+background= #171a19
+
+contrast= #fff
+grey-high= #ddd
+grey= #aaa
+grey-low= #666
+
+selection-bg= yellow
+selection-color= contrast
+
+//  ABSOLUTE
+makeAbsolute(tp=0, al=0, btm=auto, alt=auto)
+  position: absolute
+  if(tp!=auto)
+    top: tp
+  if(al!=auto)
+    {align}: al
+  if(btm!=auto)
+    bottom: btm
+  if(alt!=auto)
+    {align-alt}: alt
+
+//  TRANSITION
+step= .03
+pattern= 1.16
+duration= .5s
+durationAlt= duration*3
+easing= cubic-bezier(0.190,1.000,0.220,1.000)
+hasTransition(dur=duration, dly=0, d=0)
+  transition: all (dur+d) easing unit(dly+d, 's')
+multiTransition(min, max, dur=duration, dly=0, last=false)
+  d= 0
+  for i in min..max
+    d= (d+step)*pattern
+    if(last!=true)
+      &:nth-child({i})
+        hasTransition: dur dly d
+    if(last==true)
+      &:nth-last-child({i})
+        hasTransition: dur dly d
