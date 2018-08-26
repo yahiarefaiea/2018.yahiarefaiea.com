@@ -5,13 +5,13 @@ var Identity = {
   enough : false,
   interval: null,
   callback : null,
-  selector : '#identity, #identity div',
+  selector : '#identity div',
 
   //  WAIT
   wait: function() {
     if(Identity.processing != true) {
       Identity.processing = true
-      $('#identity').addClass('waiting')
+      $('#identity').addClass('working')
       Identity.waiting()
       Identity.interval = setInterval(Identity.waiting, Identity.duration)
     }
@@ -55,7 +55,7 @@ var Identity = {
     Identity.interval = null
     Identity.callback = null
 
-    $('#identity').removeClass('waiting')
+    $('#identity').removeClass('working')
     $(Identity.selector).removeAttr('style')
   }
 }
