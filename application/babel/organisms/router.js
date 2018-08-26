@@ -4,7 +4,7 @@ var Router = {
 
 	//	ROUTE
 	route: function(location, callback) {
-		Identity.wait()
+		Identity.work()
 		Router.location = Router.processLocation(location)
 
 		//	ROUTES

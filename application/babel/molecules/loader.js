@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  Identity.wait()
+  Identity.work()
 
   //  JPRELOADER INIT
   $('body').jpreLoader({
