@@ -17,13 +17,13 @@ var Identity = {
     })
   },
 
-  //  REST
-  rest: function() {
+  //  ROBOT
+  robot: function() {
 
   },
 
-  //  ROBOT
-  robot: function() {
+  //  REST
+  rest: function() {
 
   },
 
