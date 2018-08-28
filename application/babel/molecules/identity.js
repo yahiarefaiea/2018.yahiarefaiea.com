@@ -5,15 +5,33 @@ var Identity = {
   enough : false,
   interval: null,
   callback : null,
-  status : null,
+  status : 'loading',
   id : '#identity',
   selector : '#identity div',
+  classes : 'working rest robot',
+
+  //  WORK
+  work: function() {
+    Identity.wait(function() {
+      $(Identity.id).addClass('working')
+    })
+  },
+
+  //  REST
+  rest: function() {
+
+  },
+
+  //  ROBOT
+  robot: function() {
+
+  },
 
   //  WAIT
-  wait: function() {
+  wait: function(call) {
     if(Identity.processing != true) {
+      if(typeof call === 'function' && call) call()
       Identity.processing = true
-      $(Identity.id).addClass('working')
       Identity.waiting()
       Identity.interval = setInterval(Identity.waiting, Identity.duration)
     }
@@ -49,6 +67,11 @@ var Identity = {
     setTimeout(Identity.reset, 200)
   },
 
+  //  ABORT
+  abort: function() {
+    $(Identity.id).removeClass('working')
+  },
+
   //  RESET
   reset: function() {
     Identity.iteration = 0
@@ -57,7 +80,7 @@ var Identity = {
     Identity.interval = null
     Identity.callback = null
 
-    $(Identity.id).removeClass('working')
+    Identity.abort()
     $(Identity.selector).removeAttr('style')
   }
 }
