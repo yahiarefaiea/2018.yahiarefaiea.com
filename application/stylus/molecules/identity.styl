@@ -1,0 +1,130 @@
+identity= {
+  ball: 10px,
+  gap: 14px,
+  colors: (green yellow red blue),
+  robot: 14px,
+  rest: {
+    height: baseline,
+    gap: 20px
+  }
+}
+
+identity.position= (identity.ball + identity.gap)*.5
+identityTopLeft()
+  makeAbsolute: -(identity.position), -(identity.position)
+identityBottomLeft()
+  makeAbsolute: identity.position, -(identity.position)
+identityTopRight()
+  makeAbsolute: -(identity.position), identity.position
+identityBottomRight()
+  makeAbsolute: identity.position, identity.position
+
+identity.robot= (identity.ball + identity.gap)*.5
+identityRobotTop()
+  margin-top: -(identity.ball)
+identityRobotBottom()
+  margin-top: 0
+
+//  IDENTITY
+#identity
+  makeAbsolute: (container.padding.top + identity.rest.height*.5), 0
+  hasTransition()
+  > div
+    height: identity.ball
+    width: identity.ball
+    margin-top: -(identity.ball*.5)
+    border-radius: 50%
+    hasTransition()
+    for i in range(1,(length(identity.colors)))
+      &:nth-child({i})
+        background-color: identity.colors[i - 1]
+    &:nth-child(1)
+      identityTopLeft()
+    &:nth-child(2)
+      identityBottomLeft()
+    &:nth-child(3)
+      identityTopRight()
+    &:nth-child(4)
+      identityBottomRight()
+
+
+//  LOADING
+#identity.loading
+  makeAbsolute: 50%, 50%
+
+//  REST
+#identity.rest > div
+  top: 0
+  margin-top: -(identity.ball*.5)
+  animation: none
+  for i in range(1,(length(identity.colors)))
+    &:nth-child({i})
+      {align}: (identity.ball + identity.rest.gap) * (i - 1)
+
+//  ROBOT
+#identity.robot > div
+  animation: identityRobot durationAlt ease-in-out infinite
+  // &:nth-child(1)
+  &:nth-child(2)
+    animation-delay: -.6s
+  &:nth-child(3)
+    animation-delay: -.4s
+  &:nth-child(4)
+    animation-delay: -.2s
+
+@keyframes identityRobot
+  0%, 100%
+    identityRobotTop()
+  50%
+    identityRobotBottom()
+
+//  WORKING
+#identity.working > div
+  &:nth-child(1)
+    animation: identityWorkingGreen durationAlt ease infinite
+  &:nth-child(2)
+    animation: identityWorkingYellow durationAlt ease infinite
+  &:nth-child(3)
+    animation: identityWorkingRed durationAlt ease infinite
+  &:nth-child(4)
+    animation: identityWorkingBlue durationAlt ease infinite
+
+@keyframes identityWorkingGreen
+  0%, 100%
+    identityTopLeft()
+  25%
+    identityTopRight()
+  50%
+    identityBottomRight()
+  75%
+    identityBottomLeft()
+
+@keyframes identityWorkingYellow
+  0%, 100%
+    identityBottomLeft()
+  25%
+    identityTopLeft()
+  50%
+    identityTopRight()
+  75%
+    identityBottomRight()
+
+@keyframes identityWorkingRed
+  0%, 100%
+    identityTopRight()
+  25%
+    identityBottomRight()
+  50%
+    identityBottomLeft()
+  75%
+    identityTopLeft()
+
+@keyframes identityWorkingBlue
+  0%, 100%
+    identityBottomRight()
+  25%
+    identityBottomLeft()
+  50%
+    identityTopLeft()
+  75%
+    identityTopRight()
