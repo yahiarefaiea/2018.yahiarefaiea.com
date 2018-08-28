@@ -1,14 +1,14 @@
 var Identity = {
   duration: 1500,
   iteration: 0,
-  processing : false,
-  enough : false,
+  processing: false,
+  enough: false,
   interval: null,
-  callback : null,
-  status : 'loading',
-  id : '#identity',
-  selector : '#identity div',
-  classes : 'working rest robot',
+  callback: null,
+  status: 'loading',
+  id: '#identity',
+  selector: '#identity div',
+  classes: 'working rest robot',
 
   //  WORK
   work: function() {
