@@ -19,12 +19,6 @@ identityTopRight()
 identityBottomRight()
   makeAbsolute: identity.position, identity.position
 
-identity.robot= (identity.ball + identity.gap)*.5
-identityRobotTop()
-  margin-top: -(identity.ball)
-identityRobotBottom()
-  margin-top: 0
-
 //  IDENTITY
 #identity
   makeAbsolute: (container.padding.top + identity.rest.height*.5), 0
@@ -47,7 +41,6 @@ identityRobotBottom()
     &:nth-child(4)
       identityBottomRight()
 
-
 //  LOADING
 #identity.loading
   makeAbsolute: 50%, 50%
@@ -60,23 +53,6 @@ identityRobotBottom()
   for i in range(1,(length(identity.colors)))
     &:nth-child({i})
       {align}: (identity.ball + identity.rest.gap) * (i - 1)
-
-//  ROBOT
-#identity.robot > div
-  animation: identityRobot duration*2 ease-in-out infinite
-  // &:nth-child(1)
-  &:nth-child(2)
-    animation-delay: -.6s
-  &:nth-child(3)
-    animation-delay: -.4s
-  &:nth-child(4)
-    animation-delay: -.2s
-
-@keyframes identityRobot
-  0%, 100%
-    identityRobotTop()
-  50%
-    identityRobotBottom()
 
 //  WORKING
 #identity.working > div
@@ -128,3 +104,26 @@ identityRobotBottom()
     identityTopLeft()
   75%
     identityTopRight()
+
+//  ROBOT
+identity.robot= (identity.ball + identity.gap)*.5
+identityRobotTop()
+  margin-top: -(identity.ball)
+identityRobotBottom()
+  margin-top: 0
+
+#identity.robot > div
+  animation: identityRobot duration*2 ease-in-out infinite
+  // &:nth-child(1)
+  &:nth-child(2)
+    animation-delay: -.6s
+  &:nth-child(3)
+    animation-delay: -.4s
+  &:nth-child(4)
+    animation-delay: -.2s
+
+@keyframes identityRobot
+  0%, 100%
+    identityRobotTop()
+  50%
+    identityRobotBottom()
