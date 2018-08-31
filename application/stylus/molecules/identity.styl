@@ -20,7 +20,7 @@ identityBottomRight()
 
 //  IDENTITY
 #identity
-  makeAbsolute: (container.padding.top + navigation.height*.5), identity.ball*.5
+  makeAbsolute: (container.padding.top + navigation.height*.5), 0
   hasTransition()
   > div
     height: identity.ball
@@ -48,7 +48,7 @@ identityBottomRight()
 //  REST
 #identity.rest > div
   top: 0
-  margin-top: -(identity.ball*.5)
+  margin-left: 0
   animation: none
   for i in range(1,(length(identity.colors)))
     &:nth-child({i})
