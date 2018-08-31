@@ -1,5 +1,5 @@
 var Identity = {
-  duration: 1500,
+  duration: 1400,
   iteration: 0,
   processing: false,
   enough: false,
@@ -12,6 +12,7 @@ var Identity = {
 
   //  WORK
   work: function() {
+    if(Identity.status != 'loading') Identity.status = 'working'
     Identity.wait(function() {
       $(Identity.id).addClass('working')
     })
@@ -19,21 +20,33 @@ var Identity = {
 
   //  ROBOT
   robot: function() {
-
+    Identity.status = 'robot'
+    Identity.wait(function() {
+      $(Identity.id).addClass('robot')
+    })
   },
 
   //  REST
   rest: function() {
-
+    Identity.abort()
+    Identity.status = 'rest'
+    setTimeout(function() {
+      Identity.abort()
+      $(Identity.id).addClass('rest')
+    }, 500)
   },
 
   //  WAIT
   wait: function(call) {
     if(Identity.processing != true) {
-      if(typeof call === 'function' && call) call()
+      Identity.abort()
       Identity.processing = true
-      Identity.waiting()
-      Identity.interval = setInterval(Identity.waiting, Identity.duration)
+
+      setTimeout(function() {
+        if(typeof call === 'function' && call) call()
+        Identity.waiting()
+        Identity.interval = setInterval(Identity.waiting, Identity.duration)
+      }, 500)
     }
   },
 
@@ -49,27 +62,34 @@ var Identity = {
 
   //  STOP
   stop: function(callback) {
-    if(Identity.processing == true) {
-      Identity.enough = true
-      Identity.callback = callback
+    setTimeout(function() {
+      if(Identity.processing == true) {
+        Identity.enough = true
+        Identity.callback = callback
 
-      $(Identity.selector).attr('style',
-      'animation-iteration-count: ' + Identity.iteration +
-      '; -webkit-animation-iteration-count: ' + Identity.iteration + ';')
-    }
+        $(Identity.selector).attr('style',
+        'animation-iteration-count: ' + Identity.iteration +
+        '; -webkit-animation-iteration-count: ' + Identity.iteration + ';')
+      }
+    }, 500)
   },
 
   //  STOPPING
   stopping: function() {
     clearInterval(Identity.interval)
-    if(typeof Identity.callback === 'function' && Identity.callback) Identity.callback()
+    Identity.rest()
 
-    setTimeout(Identity.reset, 200)
+    if(typeof Identity.callback === 'function' && Identity.callback) Identity.callback()
+    Identity.reset()
   },
 
   //  ABORT
   abort: function() {
-    $(Identity.id).removeClass('working')
+    if(Identity.status == 'robot')
+      $(Identity.id).removeClass('robot')
+    else if(Identity.status != 'loading' && Identity.processing != true)
+      $(Identity.id).removeClass(Identity.classes + ' loading')
+    else $(Identity.id).removeClass(Identity.classes)
   },
 
   //  RESET
@@ -80,7 +100,6 @@ var Identity = {
     Identity.interval = null
     Identity.callback = null
 
-    Identity.abort()
     $(Identity.selector).removeAttr('style')
   }
 }
