@@ -1,13 +1,13 @@
 identity= {
   ball: 10px,
-  gap: 14px,
+  gap: baseline*.5,
   colors: (green yellow red blue),
+  robot: baseline*.5,
   rest: {
     gap: 20px
   }
 }
 
-identity.robot= identity.ball
 identity.position= (identity.ball + identity.gap)*.5
 identityTopLeft()
   makeAbsolute: -(identity.position), -(identity.position)
