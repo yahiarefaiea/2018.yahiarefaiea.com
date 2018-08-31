@@ -7,6 +7,7 @@ identity= {
   }
 }
 
+identity.robot= identity.ball
 identity.position= (identity.ball + identity.gap)*.5
 identityTopLeft()
   makeAbsolute: -(identity.position), -(identity.position)
@@ -105,24 +106,17 @@ identityBottomRight()
     identityTopRight()
 
 //  ROBOT
-identity.robot= (identity.ball + identity.gap)*.5
-identityRobotTop()
-  margin-top: -(identity.robot)
-identityRobotBottom()
-  margin-top: 0
-
 #identity.robot > div
   animation: identityRobot duration*2 ease-in-out infinite
-  // &:nth-child(1)
   &:nth-child(2)
-    animation-delay: -.6s
+    animation-delay: -.15s
   &:nth-child(3)
-    animation-delay: -.4s
+    animation-delay: -.3s
   &:nth-child(4)
-    animation-delay: -.2s
+    animation-delay: -.45s
 
 @keyframes identityRobot
   0%, 100%
-    identityRobotTop()
+    transform: translateY(0)
   50%
-    identityRobotBottom()
+    transform: translateY(identity.robot)
