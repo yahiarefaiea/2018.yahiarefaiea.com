@@ -106,17 +106,18 @@ identityBottomRight()
     identityTopRight()
 
 //  ROBOT
-#identity.robot > div
-  animation: identityRobot duration*2 ease-in-out infinite
-  &:nth-child(2)
-    animation-delay: -.15s
-  &:nth-child(3)
-    animation-delay: -.3s
-  &:nth-child(4)
-    animation-delay: -.45s
-
-@keyframes identityRobot
-  0%, 100%
-    transform: translateY(0)
-  50%
-    transform: translateY(identity.robot)
+#identity.robot
+  margin-top: -(identity.robot*.5)
+  > div
+    animation: identityRobot duration*2 ease-in-out infinite
+    @keyframes identityRobot
+      0%, 100%
+        transform: translateY(0)
+      50%
+        transform: translateY(identity.robot)
+    &:nth-child(2)
+      animation-delay: -.15s
+    &:nth-child(3)
+      animation-delay: -.3s
+    &:nth-child(4)
+      animation-delay: -.45s
