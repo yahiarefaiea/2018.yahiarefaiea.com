@@ -2,9 +2,7 @@ identity= {
   ball: 10px,
   gap: 14px,
   colors: (green yellow red blue),
-  robot: 14px,
   rest: {
-    height: baseline,
     gap: 20px
   }
 }
@@ -21,7 +19,7 @@ identityBottomRight()
 
 //  IDENTITY
 #identity
-  makeAbsolute: (container.padding.top + identity.rest.height*.5), 0
+  makeAbsolute: (container.padding.top + navigation.height*.5), 0
   hasTransition()
   > div
     height: identity.ball
@@ -108,7 +106,7 @@ identityBottomRight()
 //  ROBOT
 identity.robot= (identity.ball + identity.gap)*.5
 identityRobotTop()
-  margin-top: -(identity.ball)
+  margin-top: -(identity.robot)
 identityRobotBottom()
   margin-top: 0
 
