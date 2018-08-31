@@ -1,14 +1,14 @@
 identity= {
   ball: 10px,
-  gap: baseline*.5,
   colors: (green yellow red blue),
   robot: baseline*.5,
-  rest: {
-    gap: 20px
+  gap: {
+    normal: baseline*.5,
+    rest: 20px
   }
 }
 
-identity.position= (identity.ball + identity.gap)*.5
+identity.position= (identity.ball + identity.gap.normal)*.5
 identityTopLeft()
   makeAbsolute: -(identity.position), -(identity.position)
 identityBottomLeft()
@@ -52,7 +52,7 @@ identityBottomRight()
   animation: none
   for i in range(1,(length(identity.colors)))
     &:nth-child({i})
-      {align}: (identity.ball + identity.rest.gap) * (i - 1)
+      {align}: (identity.ball + identity.gap.rest) * (i - 1)
 
 //  WORKING
 #identity.working > div
