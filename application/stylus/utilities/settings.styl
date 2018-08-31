@@ -1,5 +1,4 @@
 baseline= 28px
-translate= baseline/2
 
 //  RESPONSIVE
 alpha= 320px
@@ -26,6 +25,7 @@ grey-low= #666
 selection-bg= yellow
 selection-color= contrast
 
+//  CONTAINER
 container= {
   width: 1000px,
   padding: {
@@ -49,8 +49,7 @@ makeAbsolute(tp=0, al=0, btm=auto, alt=auto)
 //  TRANSITION
 step= .03
 pattern= 1.16
-duration= .5s
-durationAlt= duration*3
+duration= .7s
 easing= cubic-bezier(0.190,1.000,0.220,1.000)
 hasTransition(dur=duration, dly=0, d=0)
   transition: all (dur+d) easing unit(dly+d, 's')
