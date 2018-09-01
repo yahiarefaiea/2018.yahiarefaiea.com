@@ -22,8 +22,8 @@ grey-high= #ddd
 grey= #aaa
 grey-low= #666
 
-selection-bg= yellow
-selection-color= contrast
+selection-bg= rgba(102, 102, 102, .14)
+selection-color= grey-low
 
 //  CONTAINER
 container= {
@@ -38,6 +38,15 @@ container= {
 navigation= {
   height: baseline
 }
+
+//  SELECTION
+selection(bg, color)
+  ::selection
+    background: bg
+    color: color
+  ::-moz-selection
+    background: bg
+    color: color
 
 //  ABSOLUTE
 makeAbsolute(tp=0, al=0, btm=auto, alt=auto)
