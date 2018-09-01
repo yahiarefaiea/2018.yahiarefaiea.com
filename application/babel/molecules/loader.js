@@ -12,6 +12,9 @@ $(document).ready(function() {
 
       //  CALLBACK
       Router.listen()
+      setTimeout(function() {
+        $('#signature').removeAttr('class')
+      }, 500)
     })
   })
 })
