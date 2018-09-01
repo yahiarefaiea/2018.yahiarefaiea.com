@@ -50,12 +50,15 @@ a.link.small
 //  LINK COLOR
 linkColor(colorName, color)
   .color-{colorName} a.link:not(.small),
-  a.link:not(.small).color-{colorName},
-  .color-{colorName} a.link.small:hover,
-  a.link.small.color-{colorName}:hover
+  .color-{colorName} a.link.small:hover
     color: color
     &:before
       background-color: color
+  a.link:not(.small).color-{colorName},
+  a.link.small.color-{colorName}:hover
+    color: color !important
+    &:before
+      background-color: color !important
 
 //  LINK COLOR CALLS
 linkColor('green', green)
