@@ -1,5 +1,6 @@
 var Identity = {
   duration: 1400,
+  delay: 500,
   iteration: 0,
   processing: false,
   enough: false,
@@ -33,7 +34,7 @@ var Identity = {
     setTimeout(function() {
       Identity.abort()
       $(Identity.id).addClass('rest')
-    }, 500)
+    }, Identity.delay)
   },
 
   //  WAIT
@@ -46,7 +47,7 @@ var Identity = {
         if(typeof call === 'function' && call) call()
         Identity.waiting()
         Identity.interval = setInterval(Identity.waiting, Identity.duration)
-      }, 500)
+      }, Identity.delay)
     }
   },
 
@@ -71,7 +72,7 @@ var Identity = {
         'animation-iteration-count: ' + Identity.iteration +
         '; -webkit-animation-iteration-count: ' + Identity.iteration + ';')
       }
-    }, 500)
+    }, Identity.delay)
   },
 
   //  STOPPING
