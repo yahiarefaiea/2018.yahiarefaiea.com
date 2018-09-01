@@ -49,14 +49,8 @@ a.link.small
 
 //  LINK COLOR
 linkColor(colorName, color)
-  //  LINK
   .color-{colorName} a.link:not(.small),
-  a.link:not(.small).color-{colorName}
-    color: color
-    &:before
-      background-color: color
-
-  //  LINK SMALL
+  a.link:not(.small).color-{colorName},
   .color-{colorName} a.link.small:hover,
   a.link.small.color-{colorName}:hover
     color: color
