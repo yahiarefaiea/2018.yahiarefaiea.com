@@ -14,7 +14,7 @@ $(document).ready(function() {
       Router.listen()
       setTimeout(function() {
         $('#signature').removeAttr('class')
-      }, 500)
+      }, Identity.delay)
     })
   })
 })
