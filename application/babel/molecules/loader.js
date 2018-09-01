@@ -13,7 +13,7 @@ $(document).ready(function() {
       //  CALLBACK
       Router.listen()
       setTimeout(function() {
-        $('#signature').removeAttr('class')
+        $('#signature').removeClass('loading')
       }, Identity.delay)
     })
   })
