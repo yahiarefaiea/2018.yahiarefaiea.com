@@ -1,0 +1,21 @@
+signature= {
+  frames: 44,
+  sheet: 2464px*.5,
+  width: 192px*.5,
+  height: 56px*.5
+}
+
+#signature
+  makeAbsolute: container.padding.top, 50%
+  width: signature.width
+  height: signature.height
+  margin-{align}: -(signature.width*.5)
+  background-image: url('../images/signature.png')
+  background-size: signature.width
+
+//  ANIMATION
+#signature:not(.loading)
+  animation: signatureAnimation duration*2 steps(signature.frames - 1) forwards
+  @keyframes signatureAnimation
+    100%
+      background-position: 0 (-(signature.sheet - signature.height))
