@@ -1,6 +1,6 @@
 link= {
-  height: 2px,
   width: baseline*.75,
+  height: 2px,
   small: {
     height: baseline*.25,
     color: rgba(255, 255, 255, .07)
@@ -30,7 +30,7 @@ a.link:not(.small)
   linkEffect()
   &:before
     makeAbsolute: auto 0 0
-    width: baseline*.75
+    width: link.width
     height: link.height
   &:hover:before
     width: 100%
