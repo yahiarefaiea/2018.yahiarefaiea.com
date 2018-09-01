@@ -1,0 +1,70 @@
+link= {
+  height: 2px,
+  width: baseline*.75
+  small: {
+    height: baseline*.25,
+    color: rgba(255, 255, 255, .07)
+  }
+}
+
+linkEffect()
+  display: inline-block
+  position: relative
+  &:before
+    content: ''
+    z-index: -1
+    display: block
+    hasTransition()
+
+//  ANCHOR
+a
+  cursor: pointer
+  color: inherit
+  hasTransition()
+  &, &:hover
+    text-decoration: none
+
+//  LINK
+a.link:not(.small)
+  font-weight: weight-bold
+  linkEffect()
+  &:before
+    makeAbsolute: auto 0 0
+    width: baseline*.75
+    height: link.height
+  &:hover:before
+    width: 100%
+
+//  LINK SMALL
+a.link.small
+  color: grey
+  linkEffect()
+  &:before
+    makeAbsolute: auto 0 5% 0
+    height: link.small.height
+    background-color: link.small.color
+  &:hover:before
+    bottom: -(link.small.height*.5)
+    height: link.height
+
+//  LINK COLOR
+linkColor(colorName, color)
+  //  LINK
+  .color-{colorName} a.link:not(.small),
+  a.link:not(.small).color-{colorName}
+    color: color
+    &:before
+      background-color: color
+
+  //  LINK SMALL
+  .color-{colorName} a.link.small:hover
+  a.link.small.color-{colorName}:hover
+    color: color
+    &:before
+      background-color: color
+
+//  LINK COLOR CALLS
+linkColor('green', green)
+linkColor('yellow', yellow)
+linkColor('red', red)
+linkColor('blue', blue)
