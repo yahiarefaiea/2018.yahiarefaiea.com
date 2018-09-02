@@ -1,0 +1,24 @@
+mark
+  display: inline-block
+  position: relative
+  margin: 0
+  padding: 0
+  background-color: transparent
+  &:before
+    content: ''
+    z-index: -1
+    display: block
+    makeAbsolute: 50% 0 0 0
+
+//  HIGHLIGHT COLOR
+highlightColor(colorName, color, bg)
+  .color-{colorName} mark
+    color: color
+    &:before
+      background-color: bg
+
+//  LINK COLOR CALLS
+highlightColor('green', green, greenAlpha)
+highlightColor('yellow', yellow, yellowAlpha)
+highlightColor('red', red, redAlpha)
+highlightColor('blue', blue, blueAlpha)
