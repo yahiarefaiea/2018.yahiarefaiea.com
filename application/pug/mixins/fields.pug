@@ -1,9 +1,9 @@
-mixin field(name, placeholder, id=false, type='text')
+mixin field(name, placeholder, type='text')
   .field
     if type == 'textarea'
-      textarea(id=id name=name placeholder=placeholder)
+      textarea(name=name placeholder=placeholder)
     else
-      input(id=id type=type name=name placeholder=placeholder)
+      input(type=type name=name placeholder=placeholder)
     .effect
       - for (var a = 0; a < 4; a++)
         div
