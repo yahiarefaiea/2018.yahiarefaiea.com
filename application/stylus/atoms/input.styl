@@ -1,0 +1,82 @@
+input-width= baseline*11.25
+input-height= baseline*1.25
+input-padding= 0
+input-border= link.height
+input-radius= 0
+
+input-family= inherit
+input-font= inherit
+input-weight= inherit
+
+input-bg= transparent
+input-color= grey-high
+input-placeholder= grey-low
+input-colors= (blue red yellow green)
+
+form
+  margin: 0
+
+//  INPUT AND TEXTAREA
+input, textarea
+  display: block
+  width: 100%
+  height: input-height
+  margin: 0
+  padding: input-padding
+  border: none
+  border-radius: input-radius
+
+  font-family: input-family
+  font-size: input-font
+  font-weight: input-weight
+  line-height: input-height
+  vertical-align: middle
+
+  hasTransition()
+  background-color: input-bg
+  color: input-color
+
+  &,
+  &:hover,
+  &:focus
+    outline: 0
+    box-shadow: none
+
+  +placeholder()
+    color: input-placeholder
+    opacity: 1 !important
+
+  //  YELLOW BACKGROUND CHROME
+  &:-webkit-autofill
+    -webkit-box-shadow: inset 0 0 0 1000px background
+
+//  TEXTAREA
+textarea
+  resize: none
+  box-sizing: content-box
+  min-height: auto
+  height: baseline*4 + 1px
+  line-height: baseline
+  padding-bottom: baseline*.25 - 1px
+
+//  FIELD
+.field
+  position: relative
+  max-width: input-width
+  border-bottom: input-border solid grey-low
+  .effect
+    makeAbsolute: auto 0 (- input-border) 0
+    height: input-border
+    hasTransition()
+    > *
+      makeAbsolute: 0 0 0
+      hasTransition()
+      for i in range(1,(length(input-colors)))
+        &:nth-child({i})
+          {align-alt}: 25% * (i - 1)
+          background-color: input-colors[i - 1]
+  input, textarea
+    &:focus ~ .effect > *
+      for i in range(1,(length(input-colors)))
+        &:nth-child({i})
+          {align-alt}: 6% * (i - 1)
