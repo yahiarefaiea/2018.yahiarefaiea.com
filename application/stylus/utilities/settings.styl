@@ -48,6 +48,15 @@ selection(bg, color)
     background: bg
     color: color
 
+//  OUTLINE
+outline= 1px dashed
+outline-color= text-dark-alt
+hasOutline(clr= outline-color)
+  &, &:hover
+    outline: outline transparent
+  &:not(:hover):focus
+    outline: outline clr
+
 //  ABSOLUTE
 makeAbsolute(tp=0, al=0, btm=auto, alt=auto)
   position: absolute
