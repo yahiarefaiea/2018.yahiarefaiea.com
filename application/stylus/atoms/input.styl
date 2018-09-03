@@ -9,7 +9,7 @@ input-font= inherit
 input-weight= inherit
 
 input-bg= transparent
-input-color= grey-high
+input-color= contrast
 input-placeholder= grey-low
 input-colors= (blue red yellow green)
 
@@ -60,20 +60,24 @@ textarea
 .field
   position: relative
   max-width: input-width
-  padding-bottom: input-border
+  border-bottom: input-border solid input-placeholder
   .effect
-    makeAbsolute: auto 0 0 0
+    makeAbsolute: auto 0 (- input-border) 0
     height: input-border
     hasTransition()
     > *
-      makeAbsolute: 0 0 0
+      makeAbsolute: 0 0 0 100%
       hasTransition()
       for i in range(1,(length(input-colors)))
         &:nth-child({i})
-          {align-alt}: 25% * (i - 1)
           background-color: input-colors[i - 1]
-  input, textarea
-    &:focus ~ .effect > *
-      for i in range(1,(length(input-colors)))
-        &:nth-child({i})
-          {align-alt}: 6% * (i - 1)
+  &.filled .effect > *,
+  input:focus ~ .effect > *,
+  textarea:focus ~ .effect > *
+    for i in range(1,(length(input-colors)))
+      &:nth-child({i})
+        {align-alt}: 25% * (i - 1)
+  &.validated .effect > *
+    for i in range(1,(length(input-colors)))
+      &:nth-child({i})
+        {align-alt}: 6% * (i - 1)
