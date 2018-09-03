@@ -90,9 +90,8 @@ multiTransition(min, max, dur=duration, dly=0, last=false)
 
 //  GET IN
 getIn(direction)
+  opacity: 0
   if(direction=='up')
-    opacity: 0
     transform: translateY(baseline) rotate(rotate)
   if(direction=='down')
-    opacity: 0
     transform: translateY(- baseline) rotate(- rotate)
