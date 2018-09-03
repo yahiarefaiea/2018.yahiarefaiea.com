@@ -13,9 +13,6 @@ input-color= contrast
 input-placeholder= grey-low
 input-colors= (blue red yellow green)
 
-form
-  margin: 0
-
 //  INPUT AND TEXTAREA
 input, textarea
   display: block
@@ -81,3 +78,13 @@ textarea
     for i in range(1,(length(input-colors)))
       &:nth-child({i})
         {align-alt}: 5% * (i - 1)
+
+//  FORM
+form, .form
+  margin: 0
+  &:not(.validated)
+    a.link:not(.small)
+      opacity: 0
+      transform: translateY(28px) rotate(5deg)
+      &:before
+        width: 0
