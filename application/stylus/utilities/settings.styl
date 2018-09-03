@@ -87,3 +87,12 @@ multiTransition(min, max, dur=duration, dly=0, last=false)
     if(last==true)
       &:nth-last-child({i})
         hasTransition: dur dly d
+
+//  GET IN
+getIn(direction)
+  if(direction=='up')
+    opacity: 0
+    transform: translateY(baseline) rotate(rotate)
+  if(direction=='down')
+    opacity: 0
+    transform: translateY(- baseline) rotate(- rotate)
