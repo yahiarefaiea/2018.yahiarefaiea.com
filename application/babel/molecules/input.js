@@ -2,9 +2,6 @@ $(document).ready(function() {
 
   var input = $('.field').find('input, textarea')
 
-  //  EVENTS
-  input.focus(Identity.robot)
-  input.focusout(Identity.stop)
   input.keyup(function() {
     var length = $.trim($(this).val()).length
     var field = $(this).closest('.field')
