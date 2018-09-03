@@ -1,6 +1,7 @@
 [
   "application/babel/lib/jquery-2.2.4.js",
   "application/babel/lib/jpreloader.js",
+  "application/babel/molecules/input.js",
   "application/babel/molecules/identity.js",
   "application/babel/organisms/router.js",
   "application/babel/organisms/routes.js",
