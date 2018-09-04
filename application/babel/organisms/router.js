@@ -35,7 +35,6 @@ var Router = {
 
 	//	UPDATE TEMPLATE
 	updateTemplate: function(template) {
-		var duration = 700
 		var templates = $('.template')
 		var current = $('.template[data-template='+template+']')
 
@@ -47,7 +46,7 @@ var Router = {
 			setTimeout(function() {
 		    current.addClass('current')
 			}, Identity.delay)
-		}, duration)
+		}, 700)
 	},
 
 	//	UPDATE WRAPPER
