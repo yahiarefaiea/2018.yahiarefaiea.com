@@ -7,10 +7,12 @@ block content
     .container
       
       //- TEMPLATES
-      //- include ../templates/home
-      //- include ../templates/secret
-      //- include ../templates/bucket
-      //- include ../templates/bucketAll
+      .background
+      include ../templates/home
+      include ../templates/secret
+      include ../templates/bucket
+      include ../templates/bucketAll
+      include ../templates/notFound
       
       //- SIGNATURE
       a#signature.loading.router(href='#' title='View home')
