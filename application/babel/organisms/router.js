@@ -24,12 +24,21 @@ var Router = {
 		setTimeout(function() {
 			Identity.stop(function() {
 				Router.updateWrapper()
+				Router.updateTemplate(Router.wrapper[0])
 			  window.location.hash = Router.location
 			  Router.location = null
 
 				if(typeof callback === 'function' && callback) callback()
 			})
 		}, 200)
+	},
+
+	//	UPDATE TEMPLATE
+	updateTemplate: function(name) {
+		$('.template').removeClass('active')
+		setTimeout(function() {
+	    $('.template[data-template='+name+']').addClass('active')
+		}, Identity.delay*1.5)
 	},
 
 	//	UPDATE WRAPPER
