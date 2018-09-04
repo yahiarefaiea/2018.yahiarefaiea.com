@@ -35,10 +35,19 @@ var Router = {
 
 	//	UPDATE TEMPLATE
 	updateTemplate: function(template) {
-		$('.template').removeClass('current')
+		var duration = 700
+		var templates = $('.template')
+		var current = $('.template[data-template='+template+']')
+
+		templates.removeClass('current')
 		setTimeout(function() {
-	    $('.template[data-template='+template+']').addClass('current')
-		}, Identity.delay*1.5)
+			templates.hide()
+			current.show()
+
+			setTimeout(function() {
+		    current.addClass('current')
+			}, Identity.delay)
+		}, duration)
 	},
 
 	//	UPDATE WRAPPER
