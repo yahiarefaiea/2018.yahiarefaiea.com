@@ -89,9 +89,9 @@ multiTransition(min, max, dur=duration, dly=0, last=false)
         hasTransition: dur dly d
 
 //  GET IN
-getIn(direction)
+getIn(direction, distance=baseline)
   opacity: 0
   if(direction=='up')
-    transform: translateY(baseline) rotate(rotate)
+    transform: translateY(distance) rotate(rotate)
   if(direction=='down')
-    transform: translateY(- baseline) rotate(- rotate)
+    transform: translateY(- distance) rotate(- rotate)
