@@ -1,5 +1,5 @@
 template= {
-  padding: baseline*3.75
+  padding: container.padding.top + navigation.height + baseline*3.75
 }
 
 .template
@@ -8,6 +8,6 @@ template= {
   > *
     white-space: nowrap
   main
-    makeAbsolute: (container.padding.top + navigation.height + template.padding) 0 auto
+    makeAbsolute: template.padding 0 auto
   footer
     makeAbsolute: auto 0 (container.padding.bottom)
