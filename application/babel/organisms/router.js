@@ -34,10 +34,10 @@ var Router = {
 	},
 
 	//	UPDATE TEMPLATE
-	updateTemplate: function(name) {
-		$('.template').removeClass('active')
+	updateTemplate: function(template) {
+		$('.template').removeClass('current')
 		setTimeout(function() {
-	    $('.template[data-template='+name+']').addClass('active')
+	    $('.template[data-template='+template+']').addClass('current')
 		}, Identity.delay*1.5)
 	},
 
