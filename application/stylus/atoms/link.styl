@@ -48,6 +48,13 @@ a.link.small
     bottom: -(link.small.height*.5)
     height: link.height
 
+//  LINKS
+.links
+  a.link:not(.small):not(:last-child)
+    margin-{align-alt}: baseline*1.25
+  a.link.small:not(:last-child)
+    margin-{align-alt}: baseline*.75
+
 //  LINK COLOR
 linkColor(colorName, color)
   .color-{colorName} a.link:not(.small),
