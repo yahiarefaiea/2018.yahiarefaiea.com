@@ -2,16 +2,9 @@ template= {
   padding: baseline*3.75
 }
 
-.container > .background
-  z-index: 1
-  makeAbsolute: 0 0 0 0
-
 .template
-  z-index: 1
+  display: none
   makeAbsolute: 0 0 0
-  hasTransition: duration
-  &:not(.current)
-    z-index: 0
   > *
     white-space: nowrap
   main
