@@ -1,7 +1,7 @@
 step= .03
 pattern= 1.6
 line= {
-  distance: baseline*3,
+  distance: baseline*2.5,
   rotate: 5deg,
   keyframe: 0
 }
@@ -28,23 +28,23 @@ multiAnimation(min, max, dur=duration, dly=0)
       animation-delay: dly+d
 
 //  SHOW
-show(min, max, distance=line.distance, dur=duration, dly=0)
+show(min, max, dur=duration, dly=0)
   line.keyframe= line.keyframe + 1
   animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
   @keyframes showLine{line.keyframe}
     0%
-      move('down', distance)
+      move('down')
     100%
-      move('middle', distance)
+      move('middle')
   multiAnimation: min max dur dly
 
 //  HIDE
-hide(min, max, distance=line.distance, dur=duration, dly=0)
+hide(min, max, dur=duration, dly=0)
   line.keyframe= line.keyframe + 1
   animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
   @keyframes hideLine{line.keyframe}
     0%
-      move('middle', distance)
+      move('middle')
     100%
-      move('up', distance)
+      move('up')
   multiAnimation: min max dur dly
