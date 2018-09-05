@@ -14,7 +14,7 @@ $(document).ready(function() {
       Router.listen()
       setTimeout(function() {
         $('#signature').removeClass('loading')
-      }, Identity.delay)
+      }, Identity.delay*1.5)
     })
   })
 })
