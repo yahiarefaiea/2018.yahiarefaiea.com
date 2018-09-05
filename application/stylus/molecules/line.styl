@@ -37,6 +37,7 @@ lineAnimation(min, max, dly=0)
 
 //  SHOW
 show(min, max, dly=0)
+  move('down')
   +lineAnimation(min, max, dly)
     0%
       move('down')
@@ -45,6 +46,7 @@ show(min, max, dly=0)
 
 //  HIDE
 hide(min, max, dly=0)
+  move('middle')
   +lineAnimation(min, max, dly)
     0%
       move('middle')
