@@ -35,18 +35,18 @@ lineAnimation(min, max, d=0)
   multiAnimation(min, max, duration, 0, d)
 
 //  SHOW
-show(min, max, dly=0)
+show(min, max, d=0)
   move('down')
-  +lineAnimation(min, max, dly)
+  +lineAnimation(min, max, d)
     0%
       move('down')
     100%
       move('middle')
 
 //  HIDE
-hide(min, max, dly=0)
+hide(min, max, d=0)
   move('middle')
-  +lineAnimation(min, max, dly)
+  +lineAnimation(min, max, d)
     0%
       move('middle')
     100%
