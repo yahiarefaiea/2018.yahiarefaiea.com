@@ -19,21 +19,20 @@ move(to, distance=line.distance, rotate=line.rotate)
     transform: translateY(distance) rotate(rotate)
 
 //  MULTI ANIMATION
-multiAnimation(min, max, dur=duration, dly=0)
-  d= 0
+multiAnimation(min, max, dur=duration, dly=0, d=0)
   for i in min..max
     d= (d+step)*pattern
     &:nth-child({i})
       animation-duration: dur+d
-      animation-delay: dly+d
+      animation-delay: unit(dly+d, 's')
 
 //  LINE ANIMATION
-lineAnimation(min, max, dly=0)
+lineAnimation(min, max, d=0)
   line.keyframe= line.keyframe + 1
-  animation: lineNum+line.keyframe duration easing unit(dly, 's') forwards
+  animation: lineNum+line.keyframe duration easing forwards
   @keyframes lineNum{line.keyframe}
     {block}
-  multiAnimation: min max duration dly
+  multiAnimation(min, max, duration, 0, d)
 
 //  SHOW
 show(min, max, dly=0)
