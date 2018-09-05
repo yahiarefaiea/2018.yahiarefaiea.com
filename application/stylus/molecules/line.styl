@@ -3,7 +3,7 @@ pattern= 1.6
 line= {
   distance: baseline,
   rotate: 5deg,
-  keyframe: 1
+  keyframe: 0
 }
 
 //  MOVE
@@ -20,6 +20,7 @@ move(to, distance=line.distance, rotate=line.rotate)
 
 //  SHOW
 show(distance=line.distance, dur=duration, dly=0)
+  line.keyframe= line.keyframe + 1
   animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
   @keyframes showLine{line.keyframe}
     0%
@@ -30,6 +31,7 @@ show(distance=line.distance, dur=duration, dly=0)
 
 //  HIDE
 hide(distance=line.distance, dur=duration, dly=0)
+  line.keyframe= line.keyframe + 1
   animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
   @keyframes hideLine{line.keyframe}
     0%
