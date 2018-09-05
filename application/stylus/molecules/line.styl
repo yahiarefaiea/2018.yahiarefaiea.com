@@ -11,7 +11,7 @@ move(to, distance=line.distance, rotate=line.rotate)
   if(to=='up')
     opacity: 0
     transform: translateY(- distance) rotate(- rotate)
-  if(to=='stop')
+  if(to=='middle')
     opacity: 1
     transform: translateY(0) rotate(0)
   if(to=='down')
@@ -26,7 +26,7 @@ show(distance=line.distance, dur=duration, dly=0)
     0%
       move('down', distance)
     100%
-      move('stop', distance)
+      move('middle', distance)
   {block}
 
 //  HIDE
@@ -35,7 +35,7 @@ hide(distance=line.distance, dur=duration, dly=0)
   animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
   @keyframes hideLine{line.keyframe}
     0%
-      move('stop', distance)
+      move('middle', distance)
     100%
       move('up', distance)
   {block}
