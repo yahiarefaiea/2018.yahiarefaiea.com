@@ -12,3 +12,38 @@ template= {
       margin-bottom: baseline*.75
   footer
     makeAbsolute: auto 0 (container.padding.bottom)
+
+//  TEMPLATE ANIMATIONS
+.template
+
+  //  HEADLINE
+  h1 > *
+    multiTransition: 1 5 duration 0 false
+    mark:before
+      hasTransition: duration duration*.5
+  &:not(.current) h1 > *
+    multiTransition: 1 5 duration step*6 true
+    getIn('up', headline-height)
+    mark:before
+      {align-alt}: 100%
+
+  //  PARAGRAPH
+  .p > *
+    multiTransition: 1 5 duration 0 false
+  &:not(.current) .p > *
+    multiTransition: 1 5 duration step*6 true
+    getIn('up', baseline*2)
+
+  // MAIN LINKS
+  main .links > *
+    multiTransition: 1 5 duration step*3 false
+  &:not(.current) main .links > *
+    multiTransition: 1 5 duration step*3 true
+    getIn('up', baseline*2)
+
+  // FOOTER LINKS
+  footer .links > *
+    multiTransition: 1 5 duration step*6 false
+  &:not(.current) footer .links > *
+    multiTransition: 1 5 duration 0 true
+    getIn('up', baseline*.75*2)
