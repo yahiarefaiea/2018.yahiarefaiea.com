@@ -1,7 +1,7 @@
 step= .03
 pattern= 1.6
 line= {
-  distance: baseline,
+  distance: baseline*3,
   rotate: 5deg,
   keyframe: 0
 }
@@ -18,28 +18,6 @@ move(to, distance=line.distance, rotate=line.rotate)
     opacity: 0
     transform: translateY(distance) rotate(rotate)
 
-//  SHOW
-show(distance=line.distance, dur=duration, dly=0)
-  line.keyframe= line.keyframe + 1
-  animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
-  @keyframes showLine{line.keyframe}
-    0%
-      move('down', distance)
-    100%
-      move('middle', distance)
-  {block}
-
-//  HIDE
-hide(distance=line.distance, dur=duration, dly=0)
-  line.keyframe= line.keyframe + 1
-  animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
-  @keyframes hideLine{line.keyframe}
-    0%
-      move('middle', distance)
-    100%
-      move('up', distance)
-  {block}
-
 //  MULTI ANIMATION
 multiAnimation(min, max, dur=duration, dly=0)
   d= 0
@@ -48,3 +26,25 @@ multiAnimation(min, max, dur=duration, dly=0)
     &:nth-child({i})
       animation-duration: dur+d
       animation-delay: dly+d
+
+//  SHOW
+show(min, max, distance=line.distance, dur=duration, dly=0)
+  line.keyframe= line.keyframe + 1
+  animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
+  @keyframes showLine{line.keyframe}
+    0%
+      move('down', distance)
+    100%
+      move('middle', distance)
+  multiAnimation: min max dur dly
+
+//  HIDE
+hide(min, max, distance=line.distance, dur=duration, dly=0)
+  line.keyframe= line.keyframe + 1
+  animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
+  @keyframes hideLine{line.keyframe}
+    0%
+      move('middle', distance)
+    100%
+      move('up', distance)
+  multiAnimation: min max dur dly
