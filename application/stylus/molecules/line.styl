@@ -1,42 +1,41 @@
 step= .03
-pattern= 2.8
+pattern= 1.6
 line= {
-  distance: baseline*2,
-  rotate: 5deg
+  distance: baseline,
+  rotate: 5deg,
+  keyframe: 1
 }
 
 //  MOVE
-move(to)
+move(to, distance=line.distance, rotate=line.rotate)
   if(to=='up')
     opacity: 0
-    transform: translateY(- line.distance) rotate(- line.rotate)
+    transform: translateY(- distance) rotate(- rotate)
   if(to=='stop')
     opacity: 1
     transform: translateY(0) rotate(0)
   if(to=='down')
     opacity: 0
-    transform: translateY(line.distance) rotate(line.rotate)
-
-//  KEYFRAMES
-@keyframes showLine
-  0%
-    element('down')
-  100%
-    element('stop')
-@keyframes hideLine
-  0%
-    element('stop')
-  100%
-    element('up')
+    transform: translateY(distance) rotate(rotate)
 
 //  SHOW
-show(dur=duration, dly=0)
-  animation: showLine dur easing unit(dly, 's') forwards
+show(distance=line.distance, dur=duration, dly=0)
+  animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
+  @keyframes showLine{line.keyframe}
+    0%
+      move('down', distance)
+    100%
+      move('stop', distance)
   {block}
 
 //  HIDE
-hide(dur=duration, dly=0)
-  animation: hideLine dur easing unit(dly, 's') forwards
+hide(distance=line.distance, dur=duration, dly=0)
+  animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
+  @keyframes hideLine{line.keyframe}
+    0%
+      move('stop', distance)
+    100%
+      move('up', distance)
   {block}
 
 //  MULTI ANIMATION
