@@ -42,7 +42,7 @@ var Router = {
 		setTimeout(function() {
 			templates.hide()
 			current.show().addClass('current')
-		}, 700)
+		}, 1120)
 	},
 
 	//	UPDATE WRAPPER
