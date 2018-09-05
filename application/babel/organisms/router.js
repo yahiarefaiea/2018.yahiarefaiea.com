@@ -41,11 +41,7 @@ var Router = {
 		templates.removeClass('current')
 		setTimeout(function() {
 			templates.hide()
-			current.show()
-
-			setTimeout(function() {
-		    current.addClass('current')
-			}, Identity.delay)
+			current.show().addClass('current')
 		}, 700)
 	},
 
