@@ -1,5 +1,4 @@
 baseline= 28px
-rotate= 5deg
 
 //  RESPONSIVE
 alpha= 320px
@@ -71,27 +70,7 @@ makeAbsolute(tp=0, al=0, btm=auto, alt=auto)
     {align-alt}: alt
 
 //  TRANSITION
-step= .03
-pattern= 1.16
 duration= .7s
 easing= cubic-bezier(0.190,1.000,0.220,1.000)
 hasTransition(dur=duration, dly=0, d=0)
   transition: all (dur+d) easing unit(dly+d, 's')
-multiTransition(min, max, dur=duration, dly=0, last=false)
-  d= 0
-  for i in min..max
-    d= (d+step)*pattern
-    if(last!=true)
-      &:nth-child({i})
-        hasTransition: dur dly d
-    if(last==true)
-      &:nth-last-child({i})
-        hasTransition: dur dly d
-
-//  GET IN
-getIn(direction, distance=baseline)
-  opacity: 0
-  if(direction=='up')
-    transform: translateY(distance) rotate(rotate)
-  if(direction=='down')
-    transform: translateY(- distance) rotate(- rotate)
