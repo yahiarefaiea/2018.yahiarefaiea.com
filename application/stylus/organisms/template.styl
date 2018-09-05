@@ -18,32 +18,28 @@ template= {
 
   //  HEADLINE
   h1 > *
-    multiTransition: 1 5 duration 0 false
+    show: 1 2
     mark:before
       hasTransition: duration duration*.5
   &:not(.current) h1 > *
-    multiTransition: 1 5 duration step*6 true
-    getIn('up', headline-height)
+    hide: 1 2
     mark:before
       {align-alt}: 100%
 
   //  PARAGRAPH
   .p > *
-    multiTransition: 1 5 duration 0 false
+    show: 1 2 duration3
   &:not(.current) .p > *
-    multiTransition: 1 5 duration step*6 true
-    getIn('up', baseline*2)
+    hide: 1 2 duration3
 
   // MAIN LINKS
   main .links > *
-    multiTransition: 1 5 duration step*3 false
+    show: 1 3 duration4
   &:not(.current) main .links > *
-    multiTransition: 1 5 duration step*3 true
-    getIn('up', baseline*2)
+    hide: 1 3 duration4
 
   // FOOTER LINKS
   footer .links > *
-    multiTransition: 1 5 duration step*6 false
+    show: 1 4 duration7
   &:not(.current) footer .links > *
-    multiTransition: 1 5 duration 0 true
-    getIn('up', baseline*.75*2)
+    hide: 1 4 duration7
