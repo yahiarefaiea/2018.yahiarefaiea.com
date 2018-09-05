@@ -27,24 +27,26 @@ multiAnimation(min, max, dur=duration, dly=0)
       animation-duration: dur+d
       animation-delay: dly+d
 
+//  LINE ANIMATION
+lineAnimation(min, max, dur=duration, dly=0)
+  line.keyframe= line.keyframe + 1
+  animation: lineNum+line.keyframe dur easing unit(dly, 's') forwards
+  @keyframes lineNum{line.keyframe}
+    {block}
+  multiAnimation: min max dur dly
+
 //  SHOW
 show(min, max, dur=duration, dly=0)
-  line.keyframe= line.keyframe + 1
-  animation: showLine+line.keyframe dur easing unit(dly, 's') forwards
-  @keyframes showLine{line.keyframe}
+  +lineAnimation(min, max, dur, dly)
     0%
       move('down')
     100%
       move('middle')
-  multiAnimation: min max dur dly
 
 //  HIDE
 hide(min, max, dur=duration, dly=0)
-  line.keyframe= line.keyframe + 1
-  animation: hideLine+line.keyframe dur easing unit(dly, 's') forwards
-  @keyframes hideLine{line.keyframe}
+  +lineAnimation(min, max, dur, dly)
     0%
       move('middle')
     100%
       move('up')
-  multiAnimation: min max dur dly
