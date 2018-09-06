@@ -60,10 +60,11 @@ textarea
 .field
   position: relative
   max-width: input-width
-  border-bottom: input-border solid input-placeholder
+  border-bottom: input-border solid transparent
   .effect
     makeAbsolute: auto 0 (- input-border) 0
     height: input-border
+    background-color: input-placeholder
     hasTransition()
     > *
       makeAbsolute: 0 0 0 100%
