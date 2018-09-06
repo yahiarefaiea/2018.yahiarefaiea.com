@@ -8,6 +8,7 @@ template= {
   white-space: nowrap
   main
     makeAbsolute: template.padding 0
+    h1 > *,
     .h1 > *
       height: headline-height
     .p, ul
@@ -16,7 +17,8 @@ template= {
     makeAbsolute: auto 0 (container.padding.bottom)
 
 //  HEADLINE ANIMATION
-.template h1 > *
+.template h1 > *,
+.template .h1 > *
   show: 1 2
   mark:before
     {align-alt}: 100%
@@ -26,5 +28,6 @@ template= {
         {align-alt}: 100%
       100%
         {align-alt}: 0
-.template:not(.current) h1 > *
+.template:not(.current) h1 > *,
+.template:not(.current) .h1 > *
   hide: 1 2
