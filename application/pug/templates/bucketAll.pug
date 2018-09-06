@@ -1,19 +1,19 @@
 mixin archived(date, description)
   li.archived
-    div= date
-    div= description
+    span= date
+    span= description
 mixin progress(description)
   li.progress
-    div In progress..
-    div= description
+    span In progress..
+    span= description
 mixin next(description)
   li.next
-    div Up Next.
-    div= description
+    span Up Next.
+    span= description
 mixin pending(order, description)
   li.pending
-    div= order
-    div= description
+    span= order
+    span= description
 
 .template.color-yellow(data-template='bucketAll')
   
