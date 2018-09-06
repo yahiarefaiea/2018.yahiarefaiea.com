@@ -8,59 +8,23 @@ template= {
   white-space: nowrap
   main
     makeAbsolute: template.padding 0
+    h1 > *
+      height: headline-height
     p, .p
       margin-bottom: baseline*.75
   footer
     makeAbsolute: auto 0 (container.padding.bottom)
 
-//  TEMPLATE ANIMATIONS
-.template
-
-  //  HEADLINE
-  h1 > *
-    show: 1 2
-    mark:before
-      {align-alt}: 100%
-      animation: markAnimation duration easing duration*.5 forwards
-      @keyframes markAnimation
-        0%
-          {align-alt}: 100%
-        100%
-          {align-alt}: 0
-  &:not(.current) h1 > *
-    hide: 1 2
-
-  //  PARAGRAPH, FIELD, AND SMALL
-  .p > *,
-  .form .field > *,
-  .small > *
-    show: 1 2 duration3
-  &:not(.current) .p > *,
-  &:not(.current) .form .field > *,
-  &:not(.current) .small > *
-    hide: 1 2 duration3
-
-  //  PARAGRAPH
-  &[data-template=bucket]
-    .p > *
-      show: 1 1 duration4
-    &:not(.current) .p > *
-      hide: 1 1 duration4
-
-  //  SMALL
-  ul > *
-    show: 1 20 duration5
-  &:not(.current) ul > *
-    hide: 1 20 duration5
-
-  // MAIN LINKS
-  main .links > *
-    show: 1 3 duration4
-  &:not(.current) main .links > *
-    hide: 1 3 duration4
-
-  // FOOTER LINKS
-  footer .links > *
-    show: 1 4 duration7
-  &:not(.current) footer .links > *
-    hide: 1 4 duration7
+//  HEADLINE ANIMATION
+.template h1 > *
+  show: 1 2
+  mark:before
+    {align-alt}: 100%
+    animation: markAnimation duration easing duration*.5 forwards
+    @keyframes markAnimation
+      0%
+        {align-alt}: 100%
+      100%
+        {align-alt}: 0
+.template:not(.current) h1 > *
+  hide: 1 2
