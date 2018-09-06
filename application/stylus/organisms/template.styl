@@ -20,17 +20,38 @@ template= {
   h1 > *
     show: 1 2
     mark:before
-      hasTransition: duration duration*.5
+      {align-alt}: 100%
+      animation: markAnimation duration easing duration*.5 forwards
+      @keyframes markAnimation
+        0%
+          {align-alt}: 100%
+        100%
+          {align-alt}: 0
   &:not(.current) h1 > *
     hide: 1 2
-    mark:before
-      {align-alt}: 100%
+
+  //  PARAGRAPH, FIELD, AND SMALL
+  .p > *,
+  .form .field > *,
+  .small > *
+    show: 1 2 duration3
+  &:not(.current) .p > *,
+  &:not(.current) .form .field > *,
+  &:not(.current) .small > *
+    hide: 1 2 duration3
 
   //  PARAGRAPH
-  .p > *
-    show: 1 2 duration3
-  &:not(.current) .p > *
-    hide: 1 2 duration3
+  &[data-template=bucket]
+    .p > *
+      show: 1 1 duration4
+    &:not(.current) .p > *
+      hide: 1 1 duration4
+
+  //  SMALL
+  ul > *
+    show: 1 20 duration5
+  &:not(.current) ul > *
+    hide: 1 20 duration5
 
   // MAIN LINKS
   main .links > *
