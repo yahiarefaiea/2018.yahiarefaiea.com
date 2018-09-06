@@ -43,7 +43,7 @@ lineAnimation(length, d=0)
 //  SHOW
 show(length, d=0)
   move('down')
-  +lineAnimation(1, length, d)
+  +lineAnimation(length, d)
     0%
       move('down')
     100%
@@ -52,7 +52,7 @@ show(length, d=0)
 //  HIDE
 hide(length, d=0)
   move('middle')
-  +lineAnimation(1, length, d)
+  +lineAnimation(length, d)
     0%
       move('middle')
     100%
