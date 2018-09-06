@@ -1,3 +1,20 @@
+mixin archived(date, description)
+  li.archived
+    div= date
+    div= description
+mixin progress(description)
+  li.progress
+    div In progress..
+    div= description
+mixin next(description)
+  li.next
+    div Up Next.
+    div= description
+mixin pending(order, description)
+  li.pending
+    div= order
+    div= description
+
 .template.color-yellow(data-template='bucketAll')
   
   //- MAIN
