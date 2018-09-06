@@ -30,7 +30,7 @@ multiAnimation(min, max, dur=duration, dly=0, d=0)
     d= (d+step)*pattern
     &:nth-child({i})
       animation-duration: dur+d
-      animation-delay: unit(dly+d, 's')
+      animation-delay: dly+d
 
 //  LINE ANIMATION
 lineAnimation(min, max, d=0)
