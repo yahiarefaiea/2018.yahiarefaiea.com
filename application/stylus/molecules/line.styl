@@ -25,34 +25,34 @@ move(to, distance=line.distance, rotate=line.rotate)
     transform: translateY(distance) rotate(rotate)
 
 //  MULTI ANIMATION
-multiAnimation(min, max, dur=duration, dly=0, d=0)
-  for i in min..max
+multiAnimation(length, dur=duration, dly=0, d=0)
+  for i in 1..length
     d= (d+step)*pattern
     &:nth-child({i})
       animation-duration: dur+d
       animation-delay: dly+d
 
 //  LINE ANIMATION
-lineAnimation(min, max, d=0)
+lineAnimation(length, d=0)
   line.keyframe= line.keyframe + 1
   animation: lineNum+line.keyframe duration easing forwards
   @keyframes lineNum{line.keyframe}
     {block}
-  multiAnimation(min, max, duration, 0, d)
+  multiAnimation(length, duration, 0, d)
 
 //  SHOW
-show(min, max, d=0)
+show(length, d=0)
   move('down')
-  +lineAnimation(min, max, d)
+  +lineAnimation(1, length, d)
     0%
       move('down')
     100%
       move('middle')
 
 //  HIDE
-hide(min, max, d=0)
+hide(length, d=0)
   move('middle')
-  +lineAnimation(min, max, d)
+  +lineAnimation(1, length, d)
     0%
       move('middle')
     100%
