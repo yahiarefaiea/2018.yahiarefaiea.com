@@ -1,6 +1,6 @@
 mixin archived(date, description)
   li.archived
-    span= date
+    span= date+'.'
     span= description
 mixin progress(description)
   li.progress
@@ -12,7 +12,7 @@ mixin next(description)
     span= description
 mixin pending(order, description)
   li.pending
-    span= order
+    span= order+'.'
     span= description
 
 .template.color-yellow(data-template='bucketAll')
