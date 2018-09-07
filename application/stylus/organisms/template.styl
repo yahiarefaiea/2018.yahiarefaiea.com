@@ -1,5 +1,8 @@
 template= {
-  padding: container.padding.top + navigation.height + baseline*3.75
+  padding: {
+    top: container.padding.top + navigation.height + baseline*3.75,
+    bottom: baseline*2.75
+  }
 }
 
 .template
@@ -7,8 +10,8 @@ template= {
   makeAbsolute: 0 0 0
   white-space: nowrap
   main
-    makeAbsolute: template.padding 0
-    padding-bottom: baseline*2.75
+    makeAbsolute: template.padding.top 0
+    padding-bottom: template.padding.bottom
     span
       display: block
     h1 > *,
