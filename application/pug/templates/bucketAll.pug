@@ -1,7 +1,9 @@
-mixin archived(date, description)
-  li.archived
+mixin archived(date, description, link)
+  li.archived: a(href=link title='Visit link')
     span= date+'.'
     span= description
+    svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24')
+      path(d='M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z')
 mixin progress(description)
   li.progress
     span In progress..
@@ -32,16 +34,16 @@ mixin pending(order, description)
       +pending('02', 'Own my first CSS Design Award')
       +progress('Teach web design to 20 people without anything in return')
       +pending('04', 'Visit the Hogwarts School of Witchcraft and Wizardry')
-      +archived('Sep 20, 2017', 'Watch Harry Potter’s movies all at once without sleeping')
+      +archived('Sep 20, 2017', 'Watch Harry Potter’s movies all at once without sleeping', 'https://www.facebook.com/events/125212944878228/permalink/125215144878008/')
       +pending('06', 'Have a pet')
-      +archived('Mar 23, 2016', '30 day doodle to illustrator')
-      +archived('Oct 31, 2017', 'Do Inktober drawing challenge')
+      +archived('Mar 23, 2016', '30 day doodle to illustrator', 'https://www.facebook.com/YahiaRefaiea/media_set?set=a.542222899267269&type=3')
+      +archived('Oct 31, 2017', 'Do Inktober drawing challenge', 'https://www.facebook.com/YahiaRefaiea/media_set?set=a.867667380056151&type=3')
       +pending('09', 'Read the license for all the softwares I usually use')
       +pending('10', 'Devote a one day to help random people from the street')
       +pending('11', 'Work in a zoo as a zoo keeper')
       +pending('12', 'Visit Switzerland')
       +pending('13', 'Monthly donate to an animal shelter')
-      +archived('Apr 22, 2018', 'Win Startup Weekend 1st place')
+      +archived('Apr 22, 2018', 'Win Startup Weekend 1st place', 'https://www.facebook.com/YahiaRefaiea/posts/971219879700900')
       +pending('15', 'Go to a major festival in China')
       +pending('16', 'Go on a hike')
       +pending('17', 'Take a walk through Italy')
