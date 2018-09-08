@@ -1,5 +1,5 @@
 function bucketAll() {
-  var list = $('.template[data-template=bucketAll] ul')
+  var list = $('.template[data-template=bucketAll] .bucketList')
   var link = list.find('li.archived a')
 
   //  LISTEN
