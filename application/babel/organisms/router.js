@@ -28,6 +28,8 @@ var Router = {
 			  window.location.hash = Router.location
 			  Router.location = null
 
+			  //  CALLBACKS
+			  Router.callbacks(Router.wrapper[0])
 				if(typeof callback === 'function' && callback) callback()
 			})
 		}, 200)
