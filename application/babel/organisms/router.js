@@ -80,5 +80,9 @@ var Router = {
 			Router.route($(this).attr('href'), window[$(this).attr('data-callback')])
 			e.preventDefault()
 		})
+
+		window.addEventListener('popstate', function(e) {
+			Router.route(undefined)
+		})
 	}
 }
