@@ -4,14 +4,17 @@ signature= {
   width: 192px*.5,
   height: 56px*.5
 }
+signature.position = (identity.ball*4 + identity.gap.rest*3) + baseline
 
 #signature
-  makeAbsolute: container.padding.top, 50%
+  makeAbsolute: container.padding.top signature.position
   width: signature.width
   height: signature.height
-  margin-{align}: -(signature.width*.5)
   background-image: url('../images/signature.png')
   background-size: signature.width
+  @media (min-width: alpha)
+    {align}: 50%
+    margin-{align}: -(signature.width*.5)
 
 //  ANIMATION
 #signature:not(.loading)
