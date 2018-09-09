@@ -54,16 +54,14 @@ a.link.small
     &:not(:last-child)
       margin-{align-alt}: baseline*1.25
     @media (max-width: gamma - 1)
+      display: block
+      margin-{align-alt}: 0 !important
+      &:not(:last-child)
+        margin-bottom: baseline*.5
       &:hover:before
         width: link.width*3
   a.link.small:not(:last-child)
     margin-{align-alt}: baseline*.75
-linkBlocks()
-  .links a.link:not(.small)
-    display: block
-    margin-{align-alt}: 0 !important
-    &:not(:last-child)
-      margin-bottom: baseline*.5
 
 //  LINK COLOR
 linkColor(colorName, color)
