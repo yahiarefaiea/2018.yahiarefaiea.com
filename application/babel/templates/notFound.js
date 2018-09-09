@@ -1,6 +1,6 @@
 function notFound() {
   setTimeout(function() {
-    Timer.run('.template[data-template="notFound"] time',
+    Timer.run('.template[data-template=notFound] time',
     function() {
       Router.route('#')
     }, 5)
