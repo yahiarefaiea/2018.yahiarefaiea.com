@@ -12,11 +12,19 @@ template= {
   main
     makeAbsolute: template.padding.top 0
     padding-bottom: template.padding.bottom
+    hasTransition()
+    @media (max-width: gamma - 1)
+      top: container.padding.top + navigation.height + baseline*2
     span
       display: block
     h1 > *,
     .h1 > *
       height: headline-height
+      hasTransition()
+      @media (max-width: gamma - 1)
+        height: headline-height*.6
+        line-height: headline-height*.6
+        font-size: font-headline*.6
     .p, ul
       margin-bottom: baseline*.75
   footer
