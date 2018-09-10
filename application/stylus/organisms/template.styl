@@ -14,13 +14,12 @@ templateAnimation(selector, length, d=duration1)
 //  TEMPLATE
 .template
   display: none
-  makeAbsolute: 0 0 0
+  makeAbsolute: 0 0 0 0
   white-space: nowrap
 
   //  MAIN
   main
-    makeAbsolute: template.padding.top 0
-    padding-bottom: template.padding.bottom
+    makeAbsolute: template.padding.top 0 template.padding.bottom
     hasTransition()
     @media (max-width: gamma - 1)
       top: container.padding.top + navigation.height + baseline*2
