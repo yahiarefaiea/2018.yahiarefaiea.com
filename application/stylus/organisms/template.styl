@@ -5,6 +5,12 @@ template= {
   }
 }
 
+templateAnimation(selector, length, d=duration1)
+  {selector}
+    show: length d
+  &:not(.current) {selector}
+    hide: length d
+
 .template
   display: none
   makeAbsolute: 0 0 0
@@ -30,19 +36,15 @@ template= {
   footer
     makeAbsolute: auto 0 (container.padding.bottom)
 
-//  HEADLINE ANIMATION
-.template h1 > *,
-.template .h1 > *
-  show: 2
-  mark:before
-    {align-alt}: 100%
-    animation: markAnimation duration easing duration*.5 forwards
-    @keyframes markAnimation
-      0%
-        {align-alt}: 100%
-      100%
-        {align-alt}: 0
-.template:not(.current)
-  h1 > *,
-  .h1 > *
-    hide: 2
+  //  HEADLINE ANIMATION
+  templateAnimation('h1 > *', 2)
+  templateAnimation('.h1 > *', 2)
+  h1 > *, .h1 > *
+    mark:before
+      {align-alt}: 100%
+      animation: markAnimation duration easing duration*.5 forwards
+      @keyframes markAnimation
+        0%
+          {align-alt}: 100%
+        100%
+          {align-alt}: 0
