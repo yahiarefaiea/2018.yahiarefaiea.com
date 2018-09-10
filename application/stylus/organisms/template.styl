@@ -11,10 +11,13 @@ templateAnimation(selector, length, d=duration1)
   &:not(.current) {selector}
     hide: length d
 
+//  TEMPLATE
 .template
   display: none
   makeAbsolute: 0 0 0
   white-space: nowrap
+
+  //  MAIN
   main
     makeAbsolute: template.padding.top 0
     padding-bottom: template.padding.bottom
@@ -33,6 +36,8 @@ templateAnimation(selector, length, d=duration1)
         font-size: font-headline*.6
     .p, ul
       margin-bottom: baseline*.75
+
+  //  FOOTER
   footer
     makeAbsolute: auto 0 (container.padding.bottom)
 
