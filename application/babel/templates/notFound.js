@@ -6,3 +6,7 @@ function notFound() {
     }, 5)
   }, Identity.duration*1.25)
 }
+
+function notFoundCallback() {
+  Timer.reset()
+}
