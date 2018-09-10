@@ -1,5 +1,8 @@
 $(document).ready(function() {
   Identity.work()
+  $('.template main').mCustomScrollbar({
+    theme: 'dark'
+  })
 
   //  JPRELOADER INIT
   $('body').jpreLoader({
