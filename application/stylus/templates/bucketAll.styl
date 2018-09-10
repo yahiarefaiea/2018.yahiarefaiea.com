@@ -18,28 +18,26 @@
         width: baseline*6
     span, svg
       hasTransition()
-    &.next
-      span
-        color: yellow
-    &.archived,
-    &.progress
-      span
-        color: grey-low
+    &.next span
+      color: yellow
+    &.archived span,
+    &.progress span
+      color: grey-low
     &.archived
-      span:nth-child(2)
-        text-decoration: line-through
       a, svg
         display: block
       svg
         makeAbsolute: ((list-height - 24px)*.5) (baseline*6 - baseline*1.25)
         fill: grey-low
+      span:nth-child(2)
+        text-decoration: line-through
   ul.blocks.hover li
     span
       color: grey-low
     a:hover
       span
         color: grey-high
-      span:nth-child(2)
-        text-decoration: none
       svg
         fill: yellow
+      span:nth-child(2)
+        text-decoration: none
