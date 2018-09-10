@@ -1,0 +1,38 @@
+.mCustomScrollBox
+  overflow: visible
+.mCSB_container
+  overflow: visible
+.mCSB_inside > .mCSB_container
+  margin-right: 0
+.mCSB_scrollTools
+  right: auto
+  left: -(baseline*1.25 + 16px*.5)
+
+//  mCSB_draggerRail
+.mCSB_scrollTools .mCSB_draggerRail
+  transition: opacity .2s ease-in-out, background-color .2s ease-in-out
+.mCS-dark.mCustomScrollBox:not(:hover) .mCSB_scrollTools .mCSB_draggerRail
+  background-color: transparent
+.mCS-dark.mCustomScrollBox:hover .mCSB_scrollTools .mCSB_draggerRail
+  background-color: rgba(255, 255, 255, 0.14)
+
+//  mCSB_dragger_bar
+.mCS-dark.mCustomScrollBox:not(:hover) .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+  background-color: transparent
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+  background-color: grey-low
+
+//  SCROLLBAR COLOR
+scrollbarColor(colorName, color)
+  .color-{colorName}
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar
+      background-color: color
+
+//  SCROLLBAR COLOR CALLS
+scrollbarColor('green', green)
+scrollbarColor('yellow', yellow)
+scrollbarColor('red', red)
+scrollbarColor('blue', blue)
+scrollbarColor('grayscale', grayscale)
