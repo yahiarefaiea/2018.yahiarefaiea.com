@@ -15,6 +15,7 @@ $(document).ready(function() {
 
       //  CALLBACK
       Router.listen()
+      Submit.listen('.submit')
       setTimeout(function() {
         $('#signature').removeClass('loading')
       }, Identity.delay*1.5)
