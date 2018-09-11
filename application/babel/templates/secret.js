@@ -1,4 +1,6 @@
 function secret() {
+  Submit.listen('.submit')
+
   setTimeout(function() {
     var input = $('.template[data-template=secret] .field').find('input, textarea')
 
