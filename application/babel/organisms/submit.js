@@ -14,7 +14,14 @@ var Submit = {
   },
 
   //  PUSH
-  push: function(form, template, fields) {
+  push: function(form) {
+    var template = $('.template[data-template='+form+']')
+    var fields = template.find('.field input, .field textarea')
+
+    //  WAITING
+    template.find('.form .status').removeClass('current')
+    template.find('.form .status[data-status=waiting]').addClass('current')
+
     $.ajax({
       type: 'POST',
       url: 'includes/php/'+form+'.php',
@@ -31,26 +38,20 @@ var Submit = {
 
   //  CALLBACK
   callback: function(status, template, fields) {
+    setTimeout(function() {
 
-    //  SUCCESS
-    if(status == 'success') {
-      template.addClass('success')
-      setTimeout(function() {
-        fields.val('')
-        inputTest(fields)
-      }, 1500)
-      setTimeout(function() {
-        template.removeClass('success')
-      }, 4000)
-    }
+      //  SUCCESS
+      if(status == 'success') {
+        template.find('.form .status').removeClass('current')
+        template.find('.form .status[data-status=success]').addClass('current')
+      }
 
-    //  ERROR
-    else {
-      template.addClass('error')
-      setTimeout(function() {
-        template.removeClass('error')
-      }, 4000)
-    }
+      //  ERROR
+      else {
+        template.find('.form .status').removeClass('current')
+        template.find('.form .status[data-status=error]').addClass('current')
+      }
+    }, 4000)
   },
 
 	//	LISTEN
@@ -58,9 +59,7 @@ var Submit = {
 		$(selector).on('click', function(e) {
       if($(this).closest('.form').hasClass('validated')) {
         var form = $(this).attr('data-form')
-        var template = $('.template[data-template='+form+']')
-        var fields = template.find('.field input, .field textarea')
-        Submit.push(form, template, fields)
+        Submit.push(form)
       }
 
 			e.preventDefault()
