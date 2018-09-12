@@ -52,6 +52,12 @@ var Submit = {
         template.find('.form .status').removeClass('current')
         template.find('.form .status[data-status=error]').addClass('current')
       }
+
+      //  RESET
+      setTimeout(function() {
+        template.find('.form .status').removeClass('current')
+        template.find('.form .status:not([data-status])').addClass('current')
+      }, 8000)
     }, 4000)
   },
 
