@@ -3,3 +3,13 @@ form, .form
     move('down')
     &:before
       width: 0
+
+  .small
+    z-index: -1
+    position: relative
+    margin-top: baseline*.75
+    color: grey
+    .status
+      makeAbsolute: 0
+      > *
+        hide: 1
