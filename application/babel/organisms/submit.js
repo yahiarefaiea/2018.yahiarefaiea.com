@@ -1,5 +1,5 @@
 var Submit = {
-  
+
   //  DATA
   data: function(template, fields) {
     var data = {}
