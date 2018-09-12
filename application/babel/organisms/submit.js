@@ -22,6 +22,7 @@ var Submit = {
     template.find('.form .status').removeClass('current')
     template.find('.form .status[data-status=waiting]').addClass('current')
 
+    //  AJAX
     $.ajax({
       type: 'POST',
       url: 'includes/php/'+form+'.php',
