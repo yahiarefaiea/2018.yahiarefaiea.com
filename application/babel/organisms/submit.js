@@ -19,8 +19,7 @@ var Submit = {
     var fields = template.find('.field input, .field textarea')
 
     //  WAITING
-    template.find('.form .status').removeClass('current')
-    template.find('.form .status[data-status=waiting]').addClass('current')
+    Submit.view('[data-status=waiting]', template)
 
     //  AJAX
     $.ajax({
@@ -40,26 +39,21 @@ var Submit = {
   //  CALLBACK
   callback: function(status, template, fields) {
     setTimeout(function() {
-
-      //  SUCCESS
-      if(status == 'success') {
-        template.find('.form .status').removeClass('current')
-        template.find('.form .status[data-status=success]').addClass('current')
-      }
-
-      //  ERROR
-      else {
-        template.find('.form .status').removeClass('current')
-        template.find('.form .status[data-status=error]').addClass('current')
-      }
+      if(status == 'success') Submit.view('[data-status=success]', template)
+      else Submit.view('[data-status=error]', template)
 
       //  RESET
       setTimeout(function() {
-        template.find('.form .status').removeClass('current')
-        template.find('.form .status:not([data-status])').addClass('current')
-      }, 8000)
+        Submit.view(':not([data-status])', template)
+      }, 6000)
     }, 4000)
   },
+
+	//	VIEW
+	view: function(selector, template) {
+    template.find('.form .status').removeClass('current')
+    template.find('.form .status'+selector).addClass('current')
+	},
 
 	//	LISTEN
 	listen: function(selector) {
