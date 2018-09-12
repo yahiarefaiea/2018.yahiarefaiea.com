@@ -15,7 +15,6 @@ var Submit = {
 
   //  PUSH
   push: function(form, template, fields) {
-    console.log(Submit.data(template, fields))
     $.ajax({
       type: 'POST',
       url: 'includes/php/'+form+'.php',
@@ -32,8 +31,6 @@ var Submit = {
 
   //  CALLBACK
   callback: function(status, template, fields) {
-
-    status = 'success'
 
     //  SUCCESS
     if(status == 'success') {
