@@ -5,6 +5,8 @@
   "application/babel/molecules/input.js",
   "application/babel/molecules/timer.js",
   "application/babel/molecules/identity.js",
+  "application/babel/molecules/stars.js",
+  "application/babel/molecules/yahia.js",
   "application/babel/organisms/submit.js",
   "application/babel/organisms/router.js",
   "application/babel/organisms/routes.js",
