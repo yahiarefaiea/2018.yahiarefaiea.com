@@ -1,8 +1,11 @@
+var secretAvailability = true
 function secret() {
-  setTimeout(function() {
-    var input = $('.template[data-template=secret] .field').find('input, textarea')
+  if(secretAvailability == true) {
+    setTimeout(function() {
+        var input = $('.template[data-template=secret] .field').find('input, textarea')
 
-    input.focus()
-    Identity.robot()
-  }, Identity.duration*1.25)
+        input.focus()
+        Identity.robot()
+    }, Identity.duration*1.25)
+  }
 }

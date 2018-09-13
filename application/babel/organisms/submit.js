@@ -39,13 +39,25 @@ var Submit = {
   //  CALLBACK
   callback: function(status, template, fields) {
     setTimeout(function() {
-      if(status == 'success') Submit.view('[data-status=success]', template)
-      else Submit.view('[data-status=error]', template)
+      if(status == 'success') {
+        template.find('.form .status').removeClass('current')
+        fields.closest('.field').fadeOut(700)
+        fields.closest('.form').find('.submit').fadeOut(700)
+        Identity.stop()
+        secretAvailability = false
 
-      //  RESET
-      setTimeout(function() {
-        Submit.view(':not([data-status])', template)
-      }, 6000)
+        setTimeout(function() {
+          fields.closest('.field').remove()
+          fields.closest('.form').find('.submit').remove()
+          template.find('.form .status[data-status=success]').addClass('current')
+        }, 750)
+      }
+      else {
+        Submit.view('[data-status=error]', template)
+        setTimeout(function() {
+          Submit.view(':not([data-status])', template)
+        }, 6000)
+      }
     }, 4000)
   },
 
