@@ -6,7 +6,7 @@ var Submit = {
     for (i = 0; i < fields.length; i++) {
       var field = $(fields[i])
       var name = field.attr('name')
-      var value = field.val()
+      var value = field.val().replace(/(?:\r\n|\r|\n)/g, '<br>')
       data[name] = value
     }
 
