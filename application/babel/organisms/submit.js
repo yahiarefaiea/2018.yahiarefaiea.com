@@ -49,8 +49,8 @@ var Submit = {
         secretAvailability = false
 
         setTimeout(function() {
-          fields.closest('.field').remove()
           fields.closest('.form').find('.submit').remove()
+          fields.closest('.field').remove()
           template.find('.form .status[data-status=success]').addClass('current')
         }, 750)
       }
