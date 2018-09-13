@@ -39,6 +39,8 @@ var Submit = {
   //  CALLBACK
   callback: function(status, template, fields) {
     setTimeout(function() {
+
+      //  SUCCESS
       if(status == 'success') {
         template.find('.form .status').removeClass('current')
         fields.closest('.field').fadeOut(700)
@@ -52,6 +54,8 @@ var Submit = {
           template.find('.form .status[data-status=success]').addClass('current')
         }, 750)
       }
+
+      //  ERROR
       else {
         Submit.view('[data-status=error]', template)
         setTimeout(function() {
