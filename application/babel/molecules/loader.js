@@ -1,5 +1,6 @@
 $(document).ready(function() {
   Identity.work()
+  Stars.init()
   $('.template main').mCustomScrollbar({
     theme: 'dark'
   })
