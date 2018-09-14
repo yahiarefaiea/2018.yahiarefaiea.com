@@ -1,6 +1,5 @@
 $(document).ready(function() {
   Identity.work()
-  Stars.init()
   $('.template main').mCustomScrollbar({
     theme: 'dark'
   })
@@ -17,6 +16,8 @@ $(document).ready(function() {
       //  CALLBACK
       Router.listen()
       Submit.listen('.submit')
+      Stars.init()
+      init()
       setTimeout(function() {
         $('#signature').removeClass('loading')
       }, Identity.delay*1.5)
