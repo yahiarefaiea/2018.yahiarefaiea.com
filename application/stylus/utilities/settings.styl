@@ -24,8 +24,8 @@ grey-high= #ddd
 grey= #aaa
 grey-low= #666
 
-selection-bg= grayscaleAlpha
-selection-color= grayscale
+selection-bg= transparent
+selection-color= inherit
 
 //  SELECTION
 selection(bg, color)
@@ -62,3 +62,14 @@ duration= .7s
 easing= cubic-bezier(0.190,1.000,0.220,1.000)
 hasTransition(dur=duration, dly=0, d=0)
   transition: all (dur+d) easing unit(dly+d, 's')
+
+//  GRABBABLE
+grabbable()
+  cursor: move
+  cursor: grab
+  cursor: -moz-grab
+  cursor: -webkit-grab
+  &:active
+    cursor: grabbing
+    cursor: -moz-grabbing
+    cursor: -webkit-grabbing
