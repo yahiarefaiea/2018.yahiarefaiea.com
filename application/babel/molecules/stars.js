@@ -112,8 +112,7 @@ var Stars = {
 
   //  RESIZE
   resize: function() {
-    this.canvas.width = window.innerWidth
-    this.canvas.height = window.innerHeight
-    init()
+    Stars.canvas.width = window.innerWidth
+    Stars.canvas.height = window.innerHeight
   }
 }
