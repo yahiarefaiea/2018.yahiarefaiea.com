@@ -85,8 +85,8 @@ var Stars = {
       var radius = Stars.radius
       var x = Math.random() * (this.canvas.width - radius * 2) + radius
       var y = Math.random() * (this.canvas.height - radius * 2) + radius
-      var dx = (Math.random() - 0.5) * 2
-      var dy = (Math.random() - 1) * 2
+      var dx = (Math.random() - 0.5) * 1.5
+      var dy = (Math.random() - 1) * 1.5
       var fill = this.colorArray[Math.floor(Math.random() * this.colorArray.length)]
 
       this.circleArray.push(new this.Circle(x, y, dx, dy, radius, fill))
