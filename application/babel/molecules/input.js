@@ -15,7 +15,7 @@ function inputTest(that) {
   else field.removeClass('filled')
 
   //  VALIDATED
-  if(length > 5) {
+  if(length >= 4) {
     field.addClass('validated')
     form.addClass('validated')
   } else {
