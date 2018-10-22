@@ -1,3 +1,5 @@
+var md = new MobileDetect(window.navigator.userAgent)
+
 $(document).ready(function() {
   Identity.work()
   $('.template main').mCustomScrollbar({
@@ -16,8 +18,10 @@ $(document).ready(function() {
       //  CALLBACK
       Router.listen()
       Submit.listen('.submit')
-      Stars.init()
-      init()
+      if(!md.mobile()) {
+        Stars.init()
+        init()
+      }
       setTimeout(function() {
         $('#signature').removeClass('loading')
       }, Identity.delay*1.5)
