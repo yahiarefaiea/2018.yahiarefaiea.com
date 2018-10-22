@@ -10,8 +10,16 @@
   ul.blocks li
     span
       display: inline-block
+      vertical-align: top
       &:nth-child(1)
         width: baseline*6
+      @media (max-width: 670px - 1)
+        display: inline
+        white-space: normal
+        &:nth-child(1)
+          width: auto
+          &:after
+            content: ' '
     span, svg
       hasTransition()
     &.next span
@@ -27,6 +35,11 @@
         fill: grey-low
       span:nth-child(2)
         text-decoration: line-through
+      @media (max-width: 670px - 1)
+        &
+          padding-{align}: baseline*1.5
+        svg
+          {align}: 0
 
   //  HOVER
   ul.blocks.hover li
@@ -39,6 +52,3 @@
         fill: yellow
       span:nth-child(2)
         text-decoration: none
-
-.wrapper.bucketAll
-  min-width: 640px
