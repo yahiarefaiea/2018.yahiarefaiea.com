@@ -28,16 +28,16 @@ var Submit = {
       data: {dd: JSON.stringify(Submit.data(template, fields))},
       dataType: 'json',
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-        Submit.callback('error', template, fields)
+        Submit.callback('error', form, template, fields)
       },
       success: function(data) {
-        Submit.callback('success', template, fields)
+        Submit.callback('success', form, template, fields)
       }
     })
   },
 
   //  CALLBACK
-  callback: function(status, template, fields) {
+  callback: function(status, form, template, fields) {
     setTimeout(function() {
 
       //  SUCCESS
@@ -47,9 +47,8 @@ var Submit = {
         fields.closest('.form').find('.submit').fadeOut(700)
         Identity.stop()
 
-        var templateName = template.attr('data-template')
-        if(templateName == 'secret') secretAvailability = false
-        else if(templateName == 'opinion') opinionAvailability = false
+        if(form == 'secret') secretAvailability = false
+        else if(form == 'opinion') opinionAvailability = false
 
         setTimeout(function() {
           fields.closest('.form').find('.submit').remove()
