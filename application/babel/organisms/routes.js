@@ -10,6 +10,10 @@ Router.routes = function(callback) {
   else if(location[0] == 'secret' && location[1] === undefined)
     Router.push('secret')
 
+  //  OPINION
+  else if(location[0] == 'opinion' && location[1] === undefined)
+    Router.push('opinion')
+
   //  BUCKET
   else if(location[0] == 'bucket' && location[1] === undefined)
     Router.push('bucket')
