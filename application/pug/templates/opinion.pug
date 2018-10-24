@@ -1,0 +1,28 @@
+.template.color-blue(data-template='opinion')
+  
+  //- MAIN
+  main
+    .h1
+      span What do you think
+      span when you #[mark hear my name]?
+    .form
+      +field('opinion', 'Tell me what do you think..', 'textarea')
+      a.link.submit(href='#' title='Submit' data-form='opinion') Submit
+      .small
+        .status.current
+          span Kindly be honest for a moment and give me clean feedback.
+          span Anything can help me improve myself.
+        .status(data-status='waiting')
+          span Please wait a minute..
+          span I’m trying to connect to the server.
+        .status(data-status='success')
+          span Thanks for help, buddy.. I'll challenge myself
+          span to change for better.. I swear.
+        .status(data-status='error')
+          span Something went wrong..
+          span Please try again later.
+  
+  //- FOOTER
+  footer: .links
+    a.link.router.small.alt(href='#bucket' title='View my bucket list') View my bucket list
+    a.link.router.small.alt(href='#' title='Back to home') Back to home
