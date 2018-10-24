@@ -46,7 +46,10 @@ var Submit = {
         fields.closest('.field').fadeOut(700)
         fields.closest('.form').find('.submit').fadeOut(700)
         Identity.stop()
-        secretAvailability = false
+
+        var templateName = template.attr('data-template')
+        if(templateName == 'secret') secretAvailability = false
+        else if(templateName == 'opinion') opinionAvailability = false
 
         setTimeout(function() {
           fields.closest('.form').find('.submit').remove()
