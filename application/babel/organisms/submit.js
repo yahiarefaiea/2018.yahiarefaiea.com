@@ -48,7 +48,6 @@ var Submit = {
         Identity.stop()
 
         if(form == 'secret') secretAvailability = false
-        else if(form == 'opinion') opinionAvailability = false
 
         setTimeout(function() {
           fields.closest('.form').find('.submit').remove()
