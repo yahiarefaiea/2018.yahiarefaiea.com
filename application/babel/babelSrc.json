@@ -12,7 +12,6 @@
   "application/babel/organisms/routes.js",
   "application/babel/organisms/callbacks.js",
   "application/babel/templates/secret.js",
-  "application/babel/templates/opinion.js",
   "application/babel/templates/bucketAll.js",
   "application/babel/templates/notFound.js",
   "application/babel/molecules/loader.js"
