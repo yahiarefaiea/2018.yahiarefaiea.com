@@ -18,6 +18,14 @@ Router.routes = function(callback) {
   else if(location[0] == 'bucket' && location[1] == 'all' && location[2] === undefined)
     Router.push('bucketAll')
 
+  //  PROJECTS
+  else if(location[0] == 'projects' && location[1] === undefined)
+    Router.push('projects')
+
+  //  THOUGHTS
+  else if(location[0] == 'thoughts' && location[1] === undefined)
+    Router.push('thoughts')
+
   //  NOT FOUND
   else Router.push('notFound')
 
