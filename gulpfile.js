@@ -24,6 +24,7 @@ var gulp = require('gulp'),
     css = 'stylesheets',
     js = 'javascripts',
     img = 'images',
+    audio = 'audio',
     php = 'php',
 
     //  BANNER COMMENT
@@ -101,6 +102,13 @@ gulp.task('img', function() {
 });
 
 
+//  AUDIO
+gulp.task('audio', function() {
+  return gulp.src(root+'/audio/**/*')
+    .pipe(gulp.dest(dest+'/'+assets+'/'+audio));
+});
+
+
 //  PHP
 gulp.task('php', function() {
   return gulp.src(root+'/php/**/*')
@@ -121,17 +129,18 @@ gulp.task('watch', function() {
   gulp.watch(root+'/babel/**/*', ['babel', browserSync.reload]);
   gulp.watch(root+'/stylus/**/*', ['stylus', browserSync.reload]);
   gulp.watch(root+'/img/**/*', ['img', browserSync.reload]);
+  gulp.watch(root+'/audio/**/*', ['audio', browserSync.reload]);
   gulp.watch(root+'/php/**/*', ['php', browserSync.reload]);
 });
 
 
 //  DEFAULT
 gulp.task('default', function() {
-  runSequence(['del', 'pug', 'babel', 'stylus', 'img', 'php', 'browserSync', 'watch']);
+  runSequence(['del', 'pug', 'babel', 'stylus', 'img', 'audio', 'php', 'browserSync', 'watch']);
 });
 
 
 //  RELEASE
 gulp.task('release', function() {
-  runSequence(['del', 'pug', 'babel', 'stylus', 'img', 'php', 'htaccess']);
+  runSequence(['del', 'pug', 'babel', 'stylus', 'img', 'audio', 'php', 'htaccess']);
 });
