@@ -20,11 +20,11 @@ Router.routes = function(callback) {
 
   //  PROJECTS
   else if(location[0] == 'projects' && location[1] === undefined)
-    Router.push('projects')
+    Router.push('projectsAll')
 
   //  THOUGHTS
   else if(location[0] == 'thoughts' && location[1] === undefined)
-    Router.push('thoughts')
+    Router.push('thoughtsAll')
 
   //  NOT FOUND
   else Router.push('notFound')
