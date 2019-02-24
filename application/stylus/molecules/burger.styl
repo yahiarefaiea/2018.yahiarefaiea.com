@@ -1,0 +1,42 @@
+burger-width= baseline
+burger-height= 2px
+burger-gap= 5px
+burger-margin= 6px
+
+#burger
+  makeAbsolute: container.padding.top auto auto 0
+  width: burger-width
+  height: burger-width
+  hasOutline: transparent
+  > div
+    makeAbsolute: 0 burger-width auto 0
+    height: burger-height
+    background-color: contrast
+    hasTransition()
+    &:nth-child(1)
+      top: burger-margin
+      {align}: 14px
+    &:nth-child(2)
+      top: burger-margin + burger-gap + burger-height
+      {align}: 4px
+    &:nth-child(3)
+      top: burger-margin + burger-gap*2 + burger-height*2
+      {align}: 8px
+.wrapper:not(.balls) #burger:hover > div
+    &:nth-child(1)
+      {align}: 4px
+      {align-alt}: 4px
+    &:nth-child(3)
+      {align}: 14px
+.balls #burger
+  > div
+    &:nth-child(2)
+      {align}: burger-width
+    &:nth-child(1),
+    &:nth-child(3)
+      top: burger-margin + burger-gap + burger-height
+      {align}: 4px
+    &:nth-child(1)
+      transform: rotate(-45deg)
+    &:nth-child(3)
+      transform: rotate(45deg)

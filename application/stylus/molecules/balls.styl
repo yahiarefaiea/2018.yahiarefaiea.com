@@ -1,0 +1,83 @@
+balls= {
+  width: baseline*16.5,
+  height: baseline*12.75
+}
+balls.green= {
+  size: baseline*6,
+  top: baseline*.75 -(balls.height*.5),
+  left: 0 -(balls.width*.5)
+}
+balls.yellow= {
+  size: baseline*3.75,
+  top: baseline*7.5 -(balls.height*.5),
+  left: baseline*2 -(balls.width*.5)
+}
+balls.red= {
+  size: baseline*4.5,
+  top: 0 -(balls.height*.5),
+  left: baseline*6.75 -(balls.width*.5)
+}
+balls.blue= {
+  size: baseline*7.5,
+  top: baseline*5.25 -(balls.height*.5),
+  left: baseline*9 -(balls.width*.5)
+}
+
+//  IDENTITY
+#identity > div > a
+  display: block
+  width: 100%
+  height: 100%
+  visibility: hidden
+  > span
+    makeAbsolute: 50%, 50%
+    @extend .h1
+    margin-top: baseline*.5
+    font-size: font-headline2
+    line-height: font-headline2
+    opacity: 0
+    hasTransition()
+.balls #identity > div > a > span
+  margin-top: -(font-headline2*.5)
+  opacity: 1
+  hasTransition: duration duration*.6
+.balls #identity > div > a
+  visibility: visible
+
+//  IDENTITY
+.balls #identity
+  makeAbsolute: 50%, 50%
+  &, > div
+    hasTransition: duration*2
+    transition-timing-function: cubic-bezier(,0.220,1.000,0.190,1.000)
+  > div:nth-child(1)
+    height: balls.green.size
+    width: balls.green.size
+    top: balls.green.top
+    left: balls.green.left
+  > div:nth-child(2)
+    height: balls.yellow.size
+    width: balls.yellow.size
+    top: balls.yellow.top
+    left: balls.yellow.left
+  > div:nth-child(3)
+    height: balls.red.size
+    width: balls.red.size
+    top: balls.red.top
+    left: balls.red.left
+  > div:nth-child(4)
+    height: balls.blue.size
+    width: balls.blue.size
+    top: balls.blue.top
+    left: balls.blue.left
+  > div:hover
+    transform: scale(.9)
+
+//  TEMPLATE
+.template
+  hasTransition: duration*1.5 duration*.5
+.balls .template
+  z-index: -1
+  transform: translateY(baseline*4)
+  opacity: 0
+  hasTransition: duration
