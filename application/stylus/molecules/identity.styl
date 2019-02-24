@@ -49,6 +49,7 @@ identityBottomRight()
 #identity.rest > div
   top: 0
   margin-left: 0
+  cursor: pointer
   animation: none
   for i in range(1,(length(identity.colors)))
     &:nth-child({i})
@@ -106,7 +107,7 @@ identityBottomRight()
     identityTopRight()
 
 //  ROBOT
-#identity.robot > div
+.wrapper:not(.balls) #identity.robot > div
   animation: identityRobot duration*2 ease-in-out infinite
   @keyframes identityRobot
     0%, 100%

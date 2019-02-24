@@ -21,6 +21,7 @@ var Router = {
 
 	//	CALLBACK
 	callback: function(callback) {
+		$('.wrapper').removeClass('balls')
 		setTimeout(function() {
 			Identity.stop(function() {
 				Router.updateWrapper()
