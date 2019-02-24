@@ -4,8 +4,8 @@ $(document).ready(function() {
 
   //  LISTEN
   link.hover(function() {
-    this.closest('.list').addClass('hover')
+    $(this).closest('.list').addClass('hover')
   }, function() {
-    this.closest('.list').removeClass('hover')
+    $(this).closest('.list').removeClass('hover')
   })
 })
