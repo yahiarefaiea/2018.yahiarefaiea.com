@@ -1,0 +1,18 @@
+.template.color-blue(data-template='thoughtsAll')
+  
+  //- MAIN
+  main
+    .h1
+      span
+      span #[mark my thoughts]
+    .small
+      span Here is where I write about my breakups, about my
+      span experiences, and about my failures.
+    
+    //- LIST
+    ul.list.blocks
+      +listItem('Feb 6, 2019', 'Try not to be ashamed', 'https://www.facebook.com/photo.php?fbid=1176147599208126&set=a.111034245719472&type=3')
+      +listItem('Jan 22, 2019', 'You don\'t have to come along', 'https://www.facebook.com/photo.php?fbid=1166524440170442&set=a.138536736302556&type=3')
+      +listItem('Dec 31, 2018', 'My 2018 achievements', 'https://www.facebook.com/photo.php?fbid=1152396111583275&set=a.138536736302556&type=3')
+    
+    .links: a.link.router(href='#' title='Back to home') Back to home
