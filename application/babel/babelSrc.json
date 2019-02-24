@@ -6,7 +6,7 @@
   "application/babel/molecules/list.js",
   "application/babel/molecules/timer.js",
   "application/babel/molecules/identity.js",
-  "application/babel/molecules/burger.js",
+  "application/babel/molecules/balls.js",
   "application/babel/molecules/stars.js",
   "application/babel/molecules/yahia.js",
   "application/babel/organisms/submit.js",
