@@ -18,10 +18,7 @@ $(document).ready(function() {
       //  CALLBACK
       Router.listen()
       Submit.listen('.submit')
-      if(!md.mobile()) {
-        Stars.init()
-        init()
-      }
+      if(!md.mobile()) Stars.init()
       setTimeout(function() {
         $('#signature').removeClass('loading')
       }, Identity.delay*1.5)
