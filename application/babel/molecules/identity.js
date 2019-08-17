@@ -88,8 +88,10 @@ var Identity = {
   abort: function() {
     if(Identity.status == 'robot')
       $(Identity.id).removeClass('robot')
-    else if(Identity.status != 'loading' && Identity.processing != true)
+    else if(Identity.status != 'loading' && Identity.processing != true) {
       $(Identity.id).removeClass(Identity.classes + ' loading')
+      $('#burger').removeClass('loading')
+    }
     else $(Identity.id).removeClass(Identity.classes)
   },
 
