@@ -15,6 +15,7 @@ var getImageData = function(image) {
 	canvas.height = image.height;
 
 	var ctx = canvas.getContext("2d");
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.drawImage(image, 0, 0);
 
 	return ctx.getImageData(0, 0, image.width, image.height);
@@ -26,6 +27,9 @@ function getPixel( imagedata, x, y ) {
 }
 
 var drawTheMap = function() {
+	if(particles) scene.remove(particles);
+	if(geometry) geometry.dispose();
+	if(material) material.dispose();
 
 	var geometry = new THREE.Geometry();
 	var material = new THREE.PointCloudMaterial();
@@ -56,7 +60,7 @@ var drawTheMap = function() {
 	requestAnimationFrame(render);
 };
 
-var init = function() {
+var init = function(image) {
 	renderer = new THREE.WebGLRenderer({
 		canvas: document.getElementById("yahia"),
 		antialias: true,
@@ -124,7 +128,20 @@ var render = function(a) {
 	renderer.render(scene, camera);
 };
 
-var imgData = 'includes/images/yahiarefaiea.png';
-
-var image = document.createElement("img");
-image.src = imgData;
+var Yahia = {
+	load: function(source) {
+		var imgData;
+		if(source == 'home') imgData = 'includes/images/yahiarefaiea-home.png';
+		else if(source == 'secret') imgData = 'includes/images/yahiarefaiea-secret.png';
+		else if(source == 'bucket') imgData = 'includes/images/yahiarefaiea-bucket.png';
+		else if(source == 'projectsAll') imgData = 'includes/images/yahiarefaiea-projects.png';
+		else if(source == 'thoughtsAll') imgData = 'includes/images/yahiarefaiea-thoughts.png';
+		else if(source == 'notFound') imgData = 'includes/images/yahiarefaiea-notFound.png';
+		
+		var image = document.createElement("img");
+		image.onload = function () {
+			init(image)
+		};
+		image.src = imgData;
+	}
+}
