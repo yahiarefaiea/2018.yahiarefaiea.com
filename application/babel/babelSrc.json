@@ -1,6 +1,6 @@
 [
   "application/babel/lib/jquery-2.2.4.js",
-  "application/babel/lib/jpreloader.js",
+  "application/babel/lib/realprogress.js",
   "application/babel/lib/jquery.mCustomScrollbar.concat.min.js",
   "application/babel/molecules/input.js",
   "application/babel/molecules/list.js",

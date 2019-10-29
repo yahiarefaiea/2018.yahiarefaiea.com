@@ -5,17 +5,11 @@ $(document).ready(function() {
   $('.template main').mCustomScrollbar({
     theme: 'dark'
   })
-
-  //  JPRELOADER INIT
-  $('body').jpreLoader({
-    showSplash: false,
-    showPercentage: false,
-    loaderVPos: 0,
-    splashVPos: 0
-  }, function() {
+  
+  //  REAL PROGRESS INIT
+  RealProgress.init()
+  RealProgress.onLoad = function() {
     Router.route(undefined, function() {
-
-      //  CALLBACK
       Router.listen()
       Submit.listen('.submit')
       if(!md.mobile()) Stars.init()
@@ -23,5 +17,5 @@ $(document).ready(function() {
         $('#signature').removeClass('loading')
       }, Identity.delay*1.5)
     })
-  })
+  }
 })
