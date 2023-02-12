@@ -1,6 +1,7 @@
 {
   "name": "yahiarefaiea-official-website-beta",
   "version": "1.0.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://YahiaRefaiea@bitbucket.org/YahiaRefaiea/yahiarefaiea-official-website-beta.git"
