@@ -2,4 +2,4 @@ RewriteEngine on
 RewriteBase /
 
 RewriteCond %{HTTP_HOST} !^m\.
-RewriteRule ^$ http://beta.yahiarefaiea.com/ [R,L]
+RewriteRule ^$ http://2018.yahiarefaiea.com/ [R,L]
