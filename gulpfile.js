@@ -43,7 +43,7 @@ var gulp = require('gulp'),
       ' *  \n'+
       ' *  Source code available on GitHub on:\n'+
       ' *  <%= pkg.homepage %>\n'+
-      ' */\n\n',
+      ' */\n\n';
 
 
 //  DELETE
