@@ -3,7 +3,7 @@ if (isset($_POST["dd"])) {
 	$data= json_decode($_POST["dd"]);
 
 	$subject= "New secret delivered from an anonymous";
-	$to= "hi@yahiarefaiea.com";
+	$to= "hey@yahiarefaiea.com";
 	$message= $data->secret;
 
 	$headers= "MIME-Version: 1.0\r\n";
