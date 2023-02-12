@@ -1,16 +1,20 @@
 {
   "name": "2018.yahiarefaiea.com",
   "version": "1.0.0",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yahiarefaiea/2018.yahiarefaiea.com.git"
-  },
   "author": {
     "name": "Yahia Refaiea",
-    "email": "hey@yahiarefaiea.com"
+    "email": "hey@yahiarefaiea.com",
+    "url": "http://yahiarefaiea.com"
   },
-  "url": "http://2018.yahiarefaiea.com/",
+  "license": "MIT",
+  "repository": "https://github.com/yahiarefaiea/2018.yahiarefaiea.com.git",
+  "homepage": "http://2018.yahiarefaiea.com",
+  "private": true,
+  "scripts": {
+    "dev": "npx gulp",
+    "build": "npx gulp release",
+    "clean": "npx gulp del"
+  },
   "devDependencies": {
     "browser-sync": "2.18.8",
     "del": "2.2.2",
