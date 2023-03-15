@@ -49,7 +49,7 @@ var gulp = require('gulp'),
 
 
 const {bucketList} = yahiarefaiea;
-bucketList.forEach((item, i) => {
+bucketList.forEach((bucketListItem, i) => {
   const item = bucketList[i]
   if(typeof item !== 'string')
     item.date = moment(item.date, 'YYYY.MM.DD').format('MMM D, YYYY');
