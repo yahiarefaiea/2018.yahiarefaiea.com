@@ -14,6 +14,8 @@ var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     koutoSwiss = require('kouto-swiss'),
     fs = require('fs'),
+    yahiarefaiea = require('yahiarefaiea'),
+    moment = require('moment'),
 
     //  DIRECTORIES
     root = 'application',
@@ -46,6 +48,14 @@ var gulp = require('gulp'),
       ' */\n\n';
 
 
+const {bucketList} = yahiarefaiea;
+bucketList.forEach((item, i) => {
+  const item = bucketList[i]
+  if(typeof item !== 'string')
+    item.date = moment(item.date, 'YYYY.MM.DD').format('MMM D, YYYY');
+});
+
+
 //  DELETE
 gulp.task('del', function() {
   return del.sync(dest);
@@ -62,6 +72,7 @@ gulp.task('browserSync', function() {
 gulp.task('pug', function() {
   return gulp.src(root+'/pug/public/*.pug')
     .pipe(pug({
+      data: {bucketList},
       pretty: true
      }))
     .pipe(gulp.dest(dest));

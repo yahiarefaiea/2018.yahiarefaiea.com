@@ -28,6 +28,8 @@
     "gulp-uglify": "2.1.2",
     "gulp-uglifycss": "1.0.8",
     "kouto-swiss": "1.1.0",
-    "run-sequence": "1.2.2"
+    "moment": "2.24.0",
+    "run-sequence": "1.2.2",
+    "yahiarefaiea": "github:yahiarefaiea/yahiarefaiea"
   }
 }
